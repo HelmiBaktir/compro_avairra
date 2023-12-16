@@ -17,8 +17,9 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->foreignId('category_id')->nullable()->constrained('categories');
             $table->string('nomor');
+            $table->string('name');
             $table->string('series');
-            $table->string('image_path');
+            $table->string('image_path')->nullable();
             $table->longText('desc');
             $table->timestamps();
             $table->softDeletes();

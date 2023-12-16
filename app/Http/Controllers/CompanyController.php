@@ -35,13 +35,25 @@ class CompanyController extends Controller
                     return '<span  class="text-gray-800 fs-5 fw-bold mb-1">'.$item->name.'</span>';
                 })
                 ->addColumn('Email', function($item) {
-                    return '<span  class="text-gray-800 fs-5 fw-bold mb-1">'.$item->nomor.'</span>';
+                    return '<span  class="text-gray-800 fs-5 fw-bold mb-1">'.$item->email.'</span>';
                 })
                 ->addColumn('Phone Number', function($item) {
-                    return '<span  class="text-gray-800 fs-5 fw-bold mb-1">'.$item->desc.'</span>';
+                    $phone_number =  explode('//', $item->phone_number);
+                    $list = '<ul>';
+                    foreach ($phone_number as $key => $value) {
+                        $list .= '<li>'.$value.'</li>';
+                    }
+                    $list .= '</ul>';
+                    return '<span  class="text-gray-800 fs-5 fw-bold mb-1">'.$list.'</span>';
                 })
                 ->addColumn('Address', function($item) {
-                    return '<span  class="text-gray-800 fs-5 fw-bold mb-1">'.$item->series.'</span>';
+                    $address =  explode('//', $item->address);
+                    $list = '<ul>';
+                    foreach ($address as $key => $value) {
+                        $list .= '<li>'.$value.'</li>';
+                    }
+                    $list .= '</ul>';
+                    return '<span  class="text-gray-800 fs-5 fw-bold mb-1">'.$list.'</span>';
                 })
                 ->addColumn('Action', function ($item) {
                     $encryptedIdString = "'".strval(encrypt($item->id))."'";
@@ -156,7 +168,7 @@ class CompanyController extends Controller
 
             ]);
             if ($validator->fails()) {
-                return response()->json(array('status' => 'error','msg' => 'Failed Insert Company','err'=>'Harap Periksa Kembali Inputan'), 200);
+                return response()->json(array('status' => 'error','msg' => 'Failed Update Company','err'=>'Harap Periksa Kembali Inputan'), 200);
             }
             else{
                 // Adresss
@@ -173,10 +185,10 @@ class CompanyController extends Controller
                 $company->phone_number = $phone_compile;
                 $company->address = $address_compile;
                 $company->save();
-                return response()->json(array('status' => 'success','msg' => 'Success Insert Company'), 200);
+                return response()->json(array('status' => 'success','msg' => 'Success Update Company'), 200);
             }
         } catch (\Throwable $th) {
-            return response()->json(array('status' => 'error','msg' => 'Failed Insert Company','err'=>$th->getMessage()), 200);
+            return response()->json(array('status' => 'error','msg' => 'Failed Update Company','err'=>$th->getMessage()), 200);
         }
     }
 

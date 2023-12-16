@@ -34,7 +34,7 @@ class SosialMediaController extends Controller
                     return $counter++;
                 })
                 ->addColumn('Company', function($item) {
-                    return '<span  class="text-gray-800 fs-5 fw-bold mb-1">'.$item->company_id.'</span>';
+                    return '<span  class="text-gray-800 fs-5 fw-bold mb-1">'.$item->company->name.'</span>';
                 })
                 ->addColumn('Platform', function($item) {
                     return '<span  class="text-gray-800 fs-5 fw-bold mb-1">'.$item->platform.'</span>';

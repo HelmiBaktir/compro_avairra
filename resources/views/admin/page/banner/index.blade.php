@@ -1,8 +1,8 @@
 @extends('admin.layouts.base')
-@section('title','Company')
+@section('title','Banner')
 
 @section('toolbar')
-@include('admin/components/toolbar',['title' => 'Company', 'subtitle' => 'Data'])
+@include('admin/components/toolbar',['title' => 'Banner', 'subtitle' => 'Data'])
 @endsection
 
 @section('content')
@@ -18,12 +18,12 @@
             </div>
         </div>
         <div class="card-toolbar">
-            <button id="btnAddCompany" class="btn btn-success">Add Company</button>
+            <button id="btnAddBanner" class="btn btn-success">Add Banner</button>
         </div>
 
     </div>
     <div class="card-body pt-0">
-        <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_company_table">
+        <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_banner_table">
 
         </table>
     </div>
@@ -36,9 +36,9 @@
 @section('scripts')
 <script>
     $(document).ready(function() {
-        var datatable = $('#kt_company_table').DataTable({
+        var datatable = $('#kt_banner_table').DataTable({
             "initComplete": function() {
-                $('#kt_category_table thead').addClass('bg-light-secondary fw-bold');
+                $('#kt_banner_table thead').addClass('bg-light-secondary fw-bold');
             },
             "columnDefs": [{
                 "defaultContent": "-",
@@ -46,7 +46,7 @@
             }],
             processing: true,
             serverSide: true,
-            ajax: "{{ route('company.table.admin') }}",
+            ajax: "{{ route('banner.table.admin') }}",
             columns: [
                 {
                     data: 'No',
@@ -55,27 +55,15 @@
                     className: 'px-5 text-nowrap'
                 },
                 {
-                    data: 'Name',
-                    name: 'Name',
-                    title: 'Name',
+                    data: 'Image',
+                    name: 'Image',
+                    title: 'Image',
                     className: 'text-nowrap'
                 },
                 {
-                    data: 'Email',
-                    name: 'Email',
-                    title: 'Email',
-                    className: 'text-nowrap'
-                },
-                {
-                    data: 'Phone Number',
-                    name: 'Phone Number',
-                    title: 'Phone Number',
-                    className: 'text-nowrap'
-                },
-                {
-                    data: 'Address',
-                    name: 'Address',
-                    title: 'Address',
+                    data: 'Posision',
+                    name: 'Posision',
+                    title: 'Posision',
                     className: 'text-nowrap'
                 },
                 {
@@ -94,9 +82,9 @@
     });
 </script>
 <script>
-    $('#btnAddCompany').on('click',function (e){
+    $('#btnAddBanner').on('click',function (e){
         $.ajax({
-            url: "{{ route('company.create') }}"
+            url: "{{ route('banner-slider.create') }}"
             , method: "GET"
             , success: function(response) {
                 $('#modal-div').html("");
@@ -117,8 +105,8 @@
     })
 </script>
 <script>
-    function showModalUpdateCompany(data){
-        let url = "{{ route('company.edit', ':id') }}".replace(':id', data)
+    function showModalUpdateBanner(data){
+        let url = "{{ route('banner-slider.edit', ':id') }}".replace(':id', data)
         $.ajax({
             url: url,
             method: "GET",
@@ -145,10 +133,10 @@
     }
 </script>
 <script>
-    function deleteCompany(data){
+    function deleteSosialMedia(data){
         Swal.fire({
             title: 'Are you sure?',
-            text: "Delete Company Data",
+            text: "Delete Banner Data",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -157,7 +145,7 @@
             cancelButtonText: 'Tidak'
         }).then((result) => {
             if (result.isConfirmed) {
-                let url = "{{ route('company.destroy', ':id') }}".replace(':id', data)
+                let url = "{{ route('banner-slider.destroy', ':id') }}".replace(':id', data)
                 $.ajax({
                     url: url,
                     method: "DELETE",
@@ -172,7 +160,7 @@
                                 icon: 'success',
                                 confirmButtonText: "Oke"
                             }).then(function(result) {
-                                $('#kt_company_table').DataTable().ajax.reload();
+                                $('#kt_banner_table').DataTable().ajax.reload();
                             });
 
                         } else {

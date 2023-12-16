@@ -1,13 +1,12 @@
-<form id="update_sosial_media_form">
-    @method('put')
-    <div class="modal fade" id="kt_modal_update_sosial_media" tabindex="-1" aria-hidden="true">
+<form id="add_banner_form">
+    <div class="modal fade" id="kt_modal_add_banner" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered mw-650px">
             <div class="modal-content rounded">
                 <div class="modal-body scroll-y ">
                     <div class="fv-row">
                         <div class="d-flex align-content-between flex-wrap flex-grow-1 mt-n2 mt-lg-n1">
                             <div class="text-start d-flex flex-column flex-grow-1 my-lg-0 my-2 pe-3 py-lg-0">
-                                <h3 class="modal-title pt-2">Update Sosial Media</h3>
+                                <h3 class="modal-title pt-2">Add Banner</h3>
                             </div>
                             <div>
                                 <button type="button" class="btn btn-sm btn-icon btn-active-color-primary" data-kt-modal-action-type="close" data-bs-dismiss="modal">
@@ -20,21 +19,15 @@
                         </div>
                     </div>
                     <div class="fv-row mt-3">
-                        <label for="required" class="required fs-6 fw-semibold mb-2">Company</label>
-                        <select name="company" class="form-select mb-2 select-select2" data-control="select2" data-placeholder="Select Company Name" >
-                            <option></option>
-                            @foreach($company as $key => $value)
-                                <option value="{{ $value->id }}" {{ $sosialMedia->company_id == $value->id ? 'selected' : '' }}>{{ $value->name }}</option>
-                            @endforeach
-                        </select>
+                        <label for="required" class="required fs-6 fw-semibold mb-2">Posision</label>
+                        <input type="text" class="form-control" name="posision" placeholder="Write the banner posision">
                     </div>
                     <div class="fv-row mt-3">
-                        <label for="required" class="required fs-6 fw-semibold mb-2">Platform</label>
-                        <input type="text" class="form-control" value="{{ $sosialMedia->platform }}" name="platform" placeholder="Write the platform sosial media">
-                    </div>
+                        <label for="required" class="required fs-6 fw-semibold mb-2">Image</label>
+                        <input class="form-control mb-2" type="file" name="image" accept="image/*" onchange="loadFileLogo(event)">
+                    </div> 
                     <div class="fv-row mt-3">
-                        <label for="required" class="required fs-6 fw-semibold mb-2">Link</label>
-                        <input type="text" class="form-control" value="{{ $sosialMedia->link }}" name="link" placeholder="Write the platform sosial media link">
+                        <img id="preview-logo" src="#" class="img-fluid h-50 w-50" alt="">
                     </div> 
                 </div>
                 <div class="modal-footer">
@@ -53,17 +46,14 @@
 
 <script>
     $(document).ready(function() {
-        $('#kt_modal_update_sosial_media').modal('show');
-        
-    });
-    $('.select-select2').select2({
+        $('#kt_modal_add_banner').modal('show');
     });
 
     $('#btn-simpan').click(function(e) {
         e.preventDefault();
         Swal.fire({
-            title: "Update Sosial Media"
-            , text: "Are you sure you want to Update Sosial Media?"
+            title: "Add banner"
+            , text: "Are you sure you want to add Banner?"
             , icon: 'warning'
             , target: document.getElementById('content')
             , reverseButtons: true
@@ -72,8 +62,8 @@
             , cancelButtonText: 'Cancel'
         }).then((result) => {
             if (result.isConfirmed) {
-                let act = "{{ route('sosial-media.update',':id') }}".replace(':id','{{ encrypt($sosialMedia->id) }}')
-                let form_data = new FormData(document.querySelector("#update_sosial_media_form"));
+                let act = '{{ route("banner-slider.store") }}'
+                let form_data = new FormData(document.querySelector("#add_banner_form"));
                 form_data.append('_token', '{{ csrf_token() }}')
                 $.ajax({
                     url: act
@@ -90,8 +80,8 @@
                                 , buttonsStyling: false
                                 , showConfirmButton: false
                             }).then(function(result) {
-                                $('#kt_modal_update_sosial_media').modal('hide');
-                                $('#kt_sosial_media_table').DataTable().ajax.reload();
+                                $('#kt_modal_add_banner').modal('hide');
+                                $('#kt_banner_table').DataTable().ajax.reload();
                             });
 
                         } else {
@@ -112,3 +102,21 @@
 
 </script>
 
+<script>
+    var loadFileLogo = function(event) {
+        var output = document.getElementById('preview-logo');
+        output.src = URL.createObjectURL(event.target.files[0]);
+        output.onload = function() {
+            URL.revokeObjectURL(output.src)
+        }
+    };
+
+    var loadFileImage = function(event) {
+        var output = document.getElementById('preview-image');
+        output.src = URL.createObjectURL(event.target.files[0]);
+        output.onload = function() {
+            URL.revokeObjectURL(output.src)
+        }
+    };
+
+</script>

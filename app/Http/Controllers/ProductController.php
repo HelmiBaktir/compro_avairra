@@ -36,26 +36,53 @@ class ProductController extends Controller
                     return $counter++;
                 })
                 ->addColumn('Image', function($item) {
-                    return '<span  class="text-gray-800 fs-5 fw-bold mb-1">'.$item->name.'</span>';
+                    $preview = '
+                    <a class="d-block overlay" data-fslightbox="lightbox-basic" href="'.asset($item->image_path).'">
+                        <div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px"
+                            style="background-image:url('.asset($item->image_path).')">
+                        </div>
+                        <div class="overlay-layer card-rounded bg-dark bg-opacity-25 shadow">
+                            <i class="bi bi-eye-fill text-white fs-3x"></i>
+                        </div>
+                    </a>
+                    ';
+                    // return asset($item->image_path);
+                    return $preview;
                 })
                 ->addColumn('Nomor', function($item) {
                     return '<span  class="text-gray-800 fs-5 fw-bold mb-1">'.$item->nomor.'</span>';
                 })
                 ->addColumn('Name', function($item) {
-                    return '<span  class="text-gray-800 fs-5 fw-bold mb-1">'.$item->desc.'</span>';
+                    return '<span  class="text-gray-800 fs-5 fw-bold mb-1">'.$item->name.'</span>';
                 })
                 ->addColumn('Series', function($item) {
                     return '<span  class="text-gray-800 fs-5 fw-bold mb-1">'.$item->series.'</span>';
                 })
                 ->addColumn('Category', function($item) {
-                    return '<span  class="text-gray-800 fs-5 fw-bold mb-1">'.$item->category_id.'</span>';
+                    return '<span  class="text-gray-800 fs-5 fw-bold mb-1">'.$item->category->name.'</span>';
                 })
                 ->addColumn('Action', function ($item) {
                     $encryptedIdString = "'".strval(encrypt($item->id))."'";
-                    $button ='
-                    <button onclick="showModalDescProduct('.$encryptedIdString.')" class="btn btn-primary border border-1 py-2">Show Description</button>
-                    <button onclick="showModalUpdateProduct('.$encryptedIdString.')" class="btn btn-primary border border-1  py-2">Update</button>
-                    <button onclick="deleteProduct('.$encryptedIdString.')" class="btn btn-danger border border-1  py-2">Delete</button>';
+                    $button =
+                    '
+                    <div class="dropdown">
+                        <button class="btn btn-sm btn-light btn-flex btn-center btn-active-light-success" type="button" data-bs-toggle="dropdown" aria-expanded="true">
+                            Action
+                            <i class="ki-duotone ki-down fs-5 ms-1"></i>
+                        </button>
+                        <div class="position-absolute dropdown-menu menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-150px py-1" aria-labelledby="menu-" data-popper-placement="bottom-start" style="inset: 0px auto auto 0px; margin: 0px; transform: translate(-48px, 54px);">
+                            <div class="menu-item px-3">
+                                <a href="#" onclick="showModalDescProduct('.$encryptedIdString.')"  class="menu-link px-3">Show Description</a>
+                            </div> 
+                            <div class="menu-item px-3">
+                                <a href="'.route('products.edit',encrypt($item->id)).'" class="menu-link px-3">Update</a>
+                            </div>
+                            <div class="menu-item px-3">
+                                <a href="#" onclick="deleteProduct('.$encryptedIdString.')" class="menu-link px-3">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                    ';   
                     return $button;
                 })
                 ->rawColumns(['No','Image','Nomor','Name','Series','Category','Action'])
@@ -94,7 +121,6 @@ class ProductController extends Controller
                 'desc' => 'required',
                 'category' => 'required',
                 'image' => 'required',
-
             ]);
             if ($validator->fails()) {
                 return response()->json(array('status' => 'error','msg' => 'Failed Insert Product','err'=>'Harap Periksa Kembali Inputan'), 200);
@@ -111,7 +137,7 @@ class ProductController extends Controller
                 $image = $request->file('image');
                 if($image){
                     $path = public_path('product/' . $request->get('series'));
-                    $fileName =  $product->getClientOriginalName();
+                    $fileName =  $image->getClientOriginalName();
                     if (!File::isDirectory($path)) {
                         File::makeDirectory($path, 0777, true, true);
                         $image->move($path, $fileName);
@@ -135,9 +161,15 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($product)
     {
-        //
+        try {
+            $id = decrypt($product);
+            $product = Product::find($id);
+            return response()->json(array('status' => 'success','msg' =>  view('admin.page.product.modal.desc',compact('product'))->render()), 200);
+        } catch (\Throwable $e) {
+            return response()->json(array('status' => 'error','msg' => 'Failed Show Desc','err'=>$e->getMessage()), 200);
+        }
     }
 
     /**
@@ -189,7 +221,7 @@ class ProductController extends Controller
                 $image = $request->file('image');
                 if($image){
                     $path = public_path('product/' . $request->get('series'));
-                    $fileName =  $product->getClientOriginalName();
+                    $fileName =  $image->getClientOriginalName();
                     if (!File::isDirectory($path)) {
                         File::makeDirectory($path, 0777, true, true);
                         $image->move($path, $fileName);

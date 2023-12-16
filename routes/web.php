@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\LandingPageController;
@@ -46,5 +47,9 @@ Route::middleware(['auth'])->group(function(){
     // Company
     Route::resource('company', CompanyController::class);
     Route::get('company-table', [CompanyController::class, 'tableDataAdmin'])->name('company.table.admin');
+
+    // Banner 
+    Route::resource('banner-slider', BannerController::class);
+    Route::get('banner-table', [BannerController::class, 'tableDataAdmin'])->name('banner.table.admin');
 
 });

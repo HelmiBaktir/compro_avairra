@@ -92,7 +92,7 @@
 
 
                 <div class="menu-item">
-                    <a class="menu-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">
+                    <a class="menu-link {{ request()->routeIs('banner-slider.index') ? 'active' : '' }}" href="{{ route('banner-slider.index') }}">
                     <span class="menu-icon">
                     <i class="ki-duotone ki-tablet-text-down fs-2">
                     <i class="path1"></i>

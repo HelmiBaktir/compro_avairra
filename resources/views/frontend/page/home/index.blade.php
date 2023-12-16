@@ -9,8 +9,9 @@
         <div class="shape-3 p_absolute l_0 t_0 z_2"></div>
     </div>
     <div class="banner-carousel owl-theme owl-carousel owl-dots-none">
+        @foreach ($banner as $item)     
         <div class="slide-item p_relative pt_180">
-            <div class="image-layer p_absolute" style="background-image:url({{ asset('easton/images/banner/banner-1.jpg')}})"></div>
+            <div class="image-layer p_absolute" style="background-image:url({{ asset($item->image_path)}})"></div>
             <div class="auto-container">
                 <div class="content-box p_relative d_block z_5">
                     <h2 class="p_relative d_block fs_60 lh_70 fw_bold mb_18">Best <span>Electricty</span> Service for Your Family</h2>
@@ -18,7 +19,8 @@
                 </div>
             </div>
         </div>
-        <div class="slide-item p_relative pt_180">
+        @endforeach
+        {{-- <div class="slide-item p_relative pt_180">
             <div class="image-layer p_absolute" style="background-image:url({{ asset('easton/images/banner/banner-2.jpg')}})"></div>
             <div class="auto-container">
                 <div class="content-box p_relative d_block z_5">
@@ -35,7 +37,7 @@
                     <p class="p_relative d_block fs_18">Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim.</p>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 </section>
 <!-- banner-section end -->

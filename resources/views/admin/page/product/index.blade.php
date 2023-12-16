@@ -1,5 +1,5 @@
 @extends('admin.layouts.base')
-@section('title','Category')
+@section('title','Product')
 
 @section('toolbar')
 @include('admin/components/toolbar',['title' => 'Product', 'subtitle' => 'Data'])
@@ -34,6 +34,8 @@
 @endsection
 
 @section('scripts')
+<script src="{{ asset('jeremia-assets/plugins/custom/fslightbox/fslightbox.bundle.js') }}"></script>
+
 <script>
     $(document).ready(function() {
         var datatable = $('#kt_products_table').DataTable({
@@ -49,10 +51,16 @@
             ajax: "{{ route('products.table.admin') }}",
             columns: [
                 {
+                    data: 'No',
+                    name: 'No',
+                    title: 'No',
+                    className: 'px-5 text-nowrap'
+                },
+                {
                     data: 'Image',
                     name: 'Image',
                     title: 'Image',
-                    className: 'px-5 text-nowrap'
+                    className: 'text-nowrap'
                 },
                 {
                     data: 'Nomor',
@@ -94,9 +102,37 @@
     });
 </script>
 
+<script>
+     function showModalDescProduct(data){
+        let url = "{{ route('products.show', ':id') }}".replace(':id', data)
+        $.ajax({
+            url: url,
+            method: "GET",
+            success: function(response) {
+                $('#modal-div').html("");
+                if (response.status == 'success') {
+                    $('#modal-div').html(response.msg);
+                } else {
+                    Swal.fire({
+                        title: response.msg,
+                        icon: 'error',
+                        confirmButtonText: "Oke"
+                    })
+                }
+            },
+            error: function(xhr, status, error) {
+                Swal.fire({
+                    title: 'Failed, Error Server',
+                    icon: 'error',
+                    confirmButtonText: "Oke"
+                })
+            }
+        });
+    }
+</script>
 
 <script>
-    function deleteCategory(data){
+    function deleteProduct(data){
         Swal.fire({
             title: 'Are you sure?',
             text: "Delete Product Data",

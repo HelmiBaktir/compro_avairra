@@ -7,8 +7,8 @@
 
 @section('content')
 <div class="card card-flush">
-    <div class="card-body ">
-        <form id="addProductForm" method="post">
+    <form id="addProductForm" method="post">
+        <div class="card-body ">
             <div class="form-group">
                 <label class="required form-label ">Series</label>
                 <input type="text" name="series" class="form-control mb-2" placeholder="Write a series product"/>
@@ -32,11 +32,25 @@
        
                 </textarea>
             </div>
-
-
-
-        </form>
-    </div>
+            <div class="form-group">
+                <span class="required form-label">Image</span>
+                <input class="form-control mb-2" type="file" name="image" accept="image/*" onchange="loadFileLogo(event)">
+            </div>
+            <div class="form-group">
+                <img id="preview-logo" src="#" class="img-fluid h-50 w-50" alt="">
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="d-flex justify-content-end p-1">
+                <button href="{{ route('products.index') }}" class="btn btn-light-success fw-bold me-5 w-150px">
+                    Back
+                </button>
+                <button type="submit" id="kt_btn_create_product" class="btn btn-success fw-bold w-150px">
+                    Create Product
+                </button>
+            </div>    
+        </div>
+    </form>
 </div>
 
 <div id="modal-div"></div>
@@ -47,65 +61,79 @@
 <script>
     tinymce.init({ 
         selector: "#tiny_desc",
-        menubar: false,
         toolbar: ["styleselect bold italic blockquote link bullist numlist",],
         plugins : "advlist autolink link image lists charmap print preview code table",
         statusbar: false,
         elementpath: false,
+        height: 1000, 
      
-  });
+    });
+</script>
+
+<script>
+    var loadFileLogo = function(event) {
+        var output = document.getElementById('preview-logo');
+        output.src = URL.createObjectURL(event.target.files[0]);
+        output.onload = function() {
+            URL.revokeObjectURL(output.src)
+        }
+    };
+
+    var loadFileImage = function(event) {
+        var output = document.getElementById('preview-image');
+        output.src = URL.createObjectURL(event.target.files[0]);
+        output.onload = function() {
+            URL.revokeObjectURL(output.src)
+        }
+    };
 
 </script>
 
 
 <script>
-    function deleteCategory(data){
+    $('#kt_btn_create_product').click(function(e) {
+        e.preventDefault();
         Swal.fire({
-            title: 'Are you sure?',
-            text: "Delete Product Data",
-            icon: 'warning',
+            icon:'warning',
+            title: "Are you sure insert product?",
             showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Ya',
-            cancelButtonText: 'Tidak'
+            confirmButtonText: "Save",
         }).then((result) => {
             if (result.isConfirmed) {
-                let url = "{{ route('products.destroy', ':id') }}".replace(':id', data)
+                tinyMCE.triggerSave();
+                let act = '{{ route("products.store") }}'
+                let form_data = new FormData(document.querySelector("#addProductForm"));
+                form_data.append('_token', '{{ csrf_token() }}')
                 $.ajax({
-                    url: url,
-                    method: "DELETE",
-                    data: {
-                        "_token": "{{ csrf_token() }}",
-                    },
-                    success: function(response) {
-                        if (response.status == 'success') {
+                    url: act
+                    , type: "POST"
+                    , data: form_data
+                    , dataType: "json"
+                    , contentType: false
+                    , processData: false
+                    , success: function(data) {
+                        if (data.status == "success") {
                             Swal.fire({
-                                title: response.msg,
-                                icon: 'success',
-                                confirmButtonText: "Oke"
+                                title: data.msg
+                                , icon:'success'
+                                , buttonsStyling: false
+                                , showConfirmButton: false
                             }).then(function(result) {
-                                $('#kt_products_table').DataTable().ajax.reload();
+                                window.location.href = "{{ route('products.index') }}"
                             });
 
                         } else {
                             Swal.fire({
-                                title: response.msg,
-                                icon: 'error',
-                                confirmButtonText: "Oke"
+                                title:  data.msg,
+                                icon:'error'
+                                , buttonsStyling: false
+                                , showConfirmButton: false
                             })
                         }
-                    },
-                    error: function(xhr, status, error) {
-                        Swal.fire({
-                            title: 'Failed, Server Error',
-                            icon: 'error',
-                            confirmButtonText: "Oke"
-                        })
                     }
-                });
+                })
             }
-        })
-    }
+        });
+    })
 </script>
 @endsection

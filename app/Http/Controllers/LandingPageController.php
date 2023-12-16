@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
 use Illuminate\Http\Request;
 
 class LandingPageController extends Controller
@@ -9,7 +10,8 @@ class LandingPageController extends Controller
     public function home()
     {
         //
-        return view('frontend.page.home.index');
+        $banner = Banner::all();
+        return view('frontend.page.home.index',compact('banner'));
     }
 
     public function product()
