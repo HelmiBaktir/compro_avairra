@@ -20,11 +20,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Route::get('/', function () {
-//     return view('welcome');
+//     // return view('welcome');
+//     // return view('frontend.page.product.detail');
+
 // });
 
 Route::get('/', [LandingPageController::class, 'home'])->name('landing.home');
-Route::get('/product', [LandingPageController::class, 'product'])->name('landing.product');
+Route::get('/products', [LandingPageController::class, 'product'])->name('landing.product');
+Route::get('/products-detail/{product}', [LandingPageController::class, 'productDetail'])->name('landing.product.detail');
+
+Route::get('/products-data/{category}', [LandingPageController::class, 'dataProduct'])->name('landing.product.data');
+Route::post('/products-search', [LandingPageController::class, 'searchProduct'])->name('landing.product.search');
+
 Route::get('/contact', [LandingPageController::class, 'contact'])->name('landing.contact');
 Route::get('/about-us', [LandingPageController::class, 'aboutUs'])->name('landing.aboutUs');
 
@@ -32,24 +39,26 @@ Auth::routes();
 
 Route::middleware(['auth'])->group(function(){
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    // Category
-    Route::resource('categories', CategoryController::class);
-    Route::get('categories-table', [CategoryController::class, 'tableDataAdmin'])->name('categories.table.admin');
-
-    // Product
-    Route::resource('products', ProductController::class);
-    Route::get('products-table', [ProductController::class, 'tableDataAdmin'])->name('products.table.admin');
-
-    // Sosial Media
-    Route::resource('sosial-media', SosialMediaController::class);
-    Route::get('sosial-media-table', [SosialMediaController::class, 'tableDataAdmin'])->name('sosial.media.table.admin');
+    Route::prefix('admin')->group(function () {
+        // Category
+        Route::resource('categories', CategoryController::class);
+        Route::get('categories-table', [CategoryController::class, 'tableDataAdmin'])->name('categories.table.admin');
     
-    // Company
-    Route::resource('company', CompanyController::class);
-    Route::get('company-table', [CompanyController::class, 'tableDataAdmin'])->name('company.table.admin');
-
-    // Banner 
-    Route::resource('banner-slider', BannerController::class);
-    Route::get('banner-table', [BannerController::class, 'tableDataAdmin'])->name('banner.table.admin');
+        // Product
+        Route::resource('products', ProductController::class);
+        Route::get('products-table', [ProductController::class, 'tableDataAdmin'])->name('products.table.admin');
+    
+        // Sosial Media
+        Route::resource('sosial-media', SosialMediaController::class);
+        Route::get('sosial-media-table', [SosialMediaController::class, 'tableDataAdmin'])->name('sosial.media.table.admin');
+        
+        // Company
+        Route::resource('company', CompanyController::class);
+        Route::get('company-table', [CompanyController::class, 'tableDataAdmin'])->name('company.table.admin');
+    
+        // Banner 
+        Route::resource('banner-slider', BannerController::class);
+        Route::get('banner-table', [BannerController::class, 'tableDataAdmin'])->name('banner.table.admin');
+    });
 
 });

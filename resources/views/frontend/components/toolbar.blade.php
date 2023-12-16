@@ -10,7 +10,9 @@
                 @if (isset($title))
                     <li>{{ isset($title) ? $title : '' }}</li>
                 @endif
-                {{-- <li>Our Shop</li> --}}
+                @if (isset($subtitle))
+                    <li>{{ isset($subtitle) ? $subtitle : '' }}</li>    
+                @endif
             </ul>
         </div>
     </div>

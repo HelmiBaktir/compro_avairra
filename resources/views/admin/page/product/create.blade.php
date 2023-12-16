@@ -1,5 +1,5 @@
 @extends('admin.layouts.base')
-@section('title','Category')
+@section('title','Product')
 
 @section('toolbar')
 @include('admin/components/toolbar',['title' => 'Product', 'subtitle' => 'Create - Product'])

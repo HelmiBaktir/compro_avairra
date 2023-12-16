@@ -51,6 +51,16 @@ class BannerController extends Controller
                 })
                 ->addColumn('Action', function ($item) {
                     $encryptedIdString = "'".strval(encrypt($item->id))."'";
+                    $delete_button = '';
+                    if($item->posision == 'Home'){
+                        $delete_button = '<div class="menu-item px-3">
+                        <a href="#" onclick="deleteBanner('.$encryptedIdString.')" class="menu-link px-3">Delete</a>
+                    </div>';
+                    }
+                    else{
+                        $delete_button = '';
+                    }
+                   
                     $button =
                     '
                     <div class="dropdown">
@@ -60,14 +70,9 @@ class BannerController extends Controller
                         </button>
                         <div class="position-absolute dropdown-menu menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-150px py-1" aria-labelledby="menu-" data-popper-placement="bottom-start" style="inset: 0px auto auto 0px; margin: 0px; transform: translate(-48px, 54px);">
                             <div class="menu-item px-3">
-                                <a href="#" onclick="showModalDescProduct('.$encryptedIdString.')"  class="menu-link px-3">Show Description</a>
-                            </div> 
-                            <div class="menu-item px-3">
-                                <a href="'.route('products.edit',encrypt($item->id)).'" class="menu-link px-3">Update</a>
+                                <a href="#" onclick="updateBanner('.$encryptedIdString.')"  class="menu-link px-3">Update</a>
                             </div>
-                            <div class="menu-item px-3">
-                                <a href="#" onclick="deleteProduct('.$encryptedIdString.')" class="menu-link px-3">Delete</a>
-                            </div>
+                            '.$delete_button.'
                         </div>
                     </div>
                     ';   
@@ -200,10 +205,10 @@ class BannerController extends Controller
                     $banner->image_path = 'banner/'.$request->get('posision').'/'.$fileName;
                     $banner->save();
                 }
-                return response()->json(array('status' => 'success','msg' => 'Success Update Posision'), 200);
+                return response()->json(array('status' => 'success','msg' => 'Success Update Banner'), 200);
             }
         } catch (\Throwable $th) {
-            return response()->json(array('status' => 'error','msg' => 'Failed Update Posision','err'=>$th->getMessage()), 200);
+            return response()->json(array('status' => 'error','msg' => 'Failed Update Banner','err'=>$th->getMessage()), 200);
         }
     }
 

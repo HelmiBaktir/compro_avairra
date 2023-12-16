@@ -105,7 +105,7 @@
     })
 </script>
 <script>
-    function showModalUpdateBanner(data){
+    function updateBanner(data){
         let url = "{{ route('banner-slider.edit', ':id') }}".replace(':id', data)
         $.ajax({
             url: url,

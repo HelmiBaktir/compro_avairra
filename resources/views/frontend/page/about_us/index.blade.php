@@ -6,7 +6,6 @@
 @endsection
 
 @section('content')
-<!-- about-section -->
 <section class="about-section sec-pad">
     <div class="pattern-layer-2" style="background-image: url({{ asset('easton/images/shape/shape-24.png') }});"></div>
     <div class="auto-container">
@@ -22,11 +21,22 @@
                         </div>
                         <div class="icon-box float-bob-y"><img src="{{ asset('easton/images/icons/icon-1.png') }}"
                                 alt=""></div>
+                        @if ($banner_1)
+                        <figure data-animation-text class="overlay-anim-black-bg image image-1" data-animation="overlay-animation">
+                            <img src="{{ asset($banner_1->image_path) }}" alt="" style="max-width: 470px; max-height: 470px; width: 100%; height: auto;">
+                        </figure>
+                        @else
                         <figure data-animation-text class="overlay-anim-black-bg image image-1"
                             data-animation="overlay-animation"><img
                                 src="{{ asset('easton/images/resource/about-5.jpg') }}" alt=""></figure>
+                        @endif
+                        @if ($banner_2)
+                        <figure class="image image-2"><img src="{{ asset($banner_2->image_path) }}"
+                            alt="" style="max-width: 360px; max-height: 250px; width: 100%; height: auto;"></figure>
+                        @else
                         <figure class="image image-2"><img src="{{ asset('easton/images/resource/about-6.jpg') }}"
-                                alt=""></figure>
+                            alt=""></figure>
+                        @endif     
                     </div>
                 </div>
             </div>
@@ -71,10 +81,7 @@
         </div>
     </div>
 </section>
-<!-- about-section end -->
 
-
-<!-- service-style-three -->
 <section class="service-style-three p_relative sec-pad bg-color-3 centred">
     <div class="pattern-layer" style="background-image: url({{ asset('easton/images/shape/shape-32.png') }});"></div>
     <div class="auto-container">

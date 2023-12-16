@@ -20,7 +20,7 @@
                     </div>
                     <div class="fv-row mt-3">
                         <label for="required" class="required fs-6 fw-semibold mb-2">Posision</label>
-                        <input type="text" class="form-control" name="posision" placeholder="Write the banner posision">
+                        <input type="text" class="form-control" name="posision" value="Home" placeholder="Write the banner posision" readonly>
                     </div>
                     <div class="fv-row mt-3">
                         <label for="required" class="required fs-6 fw-semibold mb-2">Image</label>

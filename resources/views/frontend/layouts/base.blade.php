@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
 <title>@yield('title') Avairra Website</title>
-<link rel="icon" href="{{ asset('easton/images/favicon.ico')}}" type="image/x-icon">
+<link rel="icon" href="{{ asset('assets/icon/logo.png') }}" type="image/x-icon">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 <link href="{{ asset('easton/css/font-awesome-all.css')}}" rel="stylesheet">
 <link href="{{ asset('easton/css/flaticon.css')}}" rel="stylesheet">
@@ -68,6 +68,7 @@
     <script src="{{ asset('easton/js/parallax-scroll.js')}}"></script>
     <script src="{{ asset('easton/js/product-filter.js')}}"></script>
     <script src="{{ asset('easton/js/script.js')}}"></script>
+    <script src="assets/js/jquery.bootstrap-touchspin.js"></script>
     @yield('script')
 </body>
 </html>
