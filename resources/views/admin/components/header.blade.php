@@ -19,6 +19,11 @@
                     <div class="cursor-pointer d-none d-md-flex flex-column align-items-end justify-content-center me-2" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
                         <span class="text-dark fs-base fw-bolder lh-1">
                         Halo, {{ auth()->user()->name }}
+                        <span class="menu-icon">
+                        <i class="ki-duotone ki-user fs-3">
+                            <span class="path1"></span>
+                            <span class="path2"></span>
+                        </i>
                         </span>
                     </div>
                     <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-color fw-semibold py-4 fs-6 w-auto" data-kt-menu="true">
@@ -35,9 +40,11 @@
                             </div>
                         </div>
                         <div class="separator my-2"></div>
-                        <div class="menu-item px-5">
-                            <a href="#" role="button" id="logout" class="menu-link px-5">Logout</a>
-                        </div>
+                            <div class="menu-item px-5">
+                                <a href="#" role="button" id="logout" class="btn btn-success px-7">
+                                    <i class="fas fa-sign-out-alt"></i> Logout
+                                </a>
+                            </div>
                     </div>
                 </div>
                 <div class="app-navbar-item d-lg-none ms-2 me-n2" title="Show header menu">

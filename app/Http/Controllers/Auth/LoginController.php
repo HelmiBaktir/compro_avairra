@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -33,8 +34,16 @@ class LoginController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    protected function authenticated(Request $request, $user)
     {
-        $this->middleware('guest')->except('logout');
+        if ($user->role == 'admin') {
+            return redirect()->route('home');
+        } else {
+            return redirect()->route('dailytask.index');
+        }
+    
+        // Arahkan ke halaman lain jika perlu
+        // return redirect('/dashboard');
     }
+    
 }

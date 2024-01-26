@@ -1,5 +1,5 @@
 <section class="page-title centred">
-    <div class="bg-layer parallax-bg" data-parallax='{"y": 100}' style="background-image: url({{ asset('easton/images/background/page-title.jpg')}});"></div>
+    <div class="bg-layer parallax-bg" data-parallax='{"y": 100}' style="background-image: url('{{ isset($backgroundImage) ? $backgroundImage : '' }}');"></div>
     <div class="auto-container">
         <div class="content-box">
             @if (isset($title))

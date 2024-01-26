@@ -17,91 +17,81 @@
             <div class="menu menu-column menu-rounded menu-sub-indention px-3" id="#kt_app_sidebar_menu" data-kt-menu="true" data-kt-menu-expand="false">
                 <div class="menu-item">
                     <a class="menu-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">
-                    <span class="menu-icon">
-                    <i class="ki-duotone ki-element-11 fs-2">
-                    <span class="path1"></span>
-                    <span class="path2"></span>
-                    <span class="path3"></span>
-                    <span class="path4"></span>
-                    </i>
-                    </span>
-                    <span class="menu-title">Dashboard</span>
+                        <span class="menu-icon">
+                            <i class="ki-duotone ki-element-11 fs-2">
+                                <span class="path1"></span>
+                                <span class="path2"></span>
+                                <span class="path3"></span>
+                                <span class="path4"></span>
+                            </i>
+                        </span>
+                        <span class="menu-title">Dashboard</span>
                     </a>
                 </div>
-                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-                    <span class="menu-link {{ request()->is('*pengajuan*') ? 'active' : '' }}">
+
+                <div class="menu-item">
+                    <a class="menu-link {{ request()->routeIs('products.index') ? 'active' : '' }}" href="{{ route('products.index') }}">
                         <span class="menu-icon">
-                            <i class="ki-duotone ki-tablet-text-up fs-2">
-                                <i class="path1"></i>
-                                <i class="path2"></i>
-                            </i>
+                            <i class="ki-duotone ki-handcart fs-1"></i>
                         </span>
-                        <span class="menu-title">Product</span>
-                        <span class="menu-arrow"></span>
-                    </span>
-                    <div class="menu-sub menu-sub-accordion">
-                        <div class="menu-item">
-                            <a class="menu-link {{ request()->routeIs('products.index') ? 'active' : '' }}" href="{{ route('products.index') }}">
-                            <span class="menu-title">
-                                Data
-                            </span>
-                            </a>
-                        </div>
-                        <div class="menu-item">
-                            <a class="menu-link {{ request()->routeIs('categories.index') ? 'active' : '' }}" href="{{ route('categories.index') }}">
-                            <span class="menu-title">
-                                Category
-                            </span>
-                            </a>
-                        </div>
-                    </div>
+                    <span class="menu-title">Product Data</span>
+                    </a>
                 </div>
 
-                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-                    <span class="menu-link {{ request()->is('*keuangan*') ? 'active' : '' }}">
+                <div class="menu-item">
+                    <a class="menu-link {{ request()->routeIs('categories.index') ? 'active' : '' }}" href="{{ route('categories.index') }}">
                         <span class="menu-icon">
-                            <i class="ki-duotone ki-bill fs-2">
-                                <i class="path1"></i>
-                                <i class="path2"></i>
-                                <i class="path3"></i>
-                                <i class="path4"></i>
-                                <i class="path5"></i>
-                                <i class="path6"></i>
+                            <i class="ki-duotone ki-book-open fs-1">
+                                <span class="path1"></span>
+                                <span class="path2"></span>
+                                <span class="path3"></span>
+                                <span class="path4"></span>
                             </i>
                         </span>
-                        <span class="menu-title">Company</span>
-                        <span class="menu-arrow"></span>
-                    </span>
-                    <div class="menu-sub menu-sub-accordion">
-                        <div class="menu-item">
-                            <a class="menu-link {{ request()->routeIs('company.index') ? 'active' : '' }}" href="{{ route('company.index') }}">
-                            <span class="menu-title">
-                                Data
-                            </span>
-                            </a>
-                        </div>
-                        <div class="menu-item">
-                            <a class="menu-link {{ request()->routeIs('sosial-media.index') ? 'active' : '' }}" href="{{ route('sosial-media.index') }}">
-                            <span class="menu-title">
-                                Sosial Media
-                            </span>
-                            </a>
-                        </div>
-                    </div>
+                        <span class="menu-title">Category Data</span>
+                    </a>
                 </div>
 
+                <div class="menu-item">
+                    <a class="menu-link {{ request()->routeIs('company.index') ? 'active' : '' }}" href="{{ route('company.index') }}">
+                        <span class="menu-icon">
+                            <i class="ki-duotone ki-profile-user fs-1">
+                                <span class="path1"></span>
+                                <span class="path2"></span>
+                                <span class="path3"></span>
+                                <span class="path4"></span>
+                            </i>
+                        </span>
+                        <span class="menu-title">Company Profile</span>
+                    </a>
+                </div>
+
+                <div class="menu-item">
+                    <a class="menu-link {{ request()->routeIs('sosial-media.index') ? 'active' : '' }}" href="{{ route('sosial-media.index') }}">
+                        <span class="menu-icon">
+                            <i class="ki-duotone ki-technology-4 fs-1">
+                                <span class="path1"></span>
+                                <span class="path2"></span>
+                                <span class="path3"></span>
+                                <span class="path4"></span>
+                                <span class="path5"></span>
+                                <span class="path6"></span>
+                                <span class="path7"></span>
+                            </i>
+                        </span>
+                        <span class="menu-title">Social Media</span>
+                    </a>
+                </div>
 
                 <div class="menu-item">
                     <a class="menu-link {{ request()->routeIs('banner-slider.index') ? 'active' : '' }}" href="{{ route('banner-slider.index') }}">
-                    <span class="menu-icon">
-                    <i class="ki-duotone ki-tablet-text-down fs-2">
-                    <i class="path1"></i>
-                    <i class="path2"></i>
-                    <i class="path3"></i>
-                    <i class="path4"></i>
-                    </i>
-                    </span>
-                    <span class="menu-title">Banner</span>
+                        <span class="menu-icon">
+                            <i class="ki-duotone ki-picture fs-1">
+                                <span class="path1"></span>
+                                <span class="path2"></span>
+                            </i>
+                        </span>
+                        <span class="menu-title">Banner</span>
                     </a>
                 </div>
 

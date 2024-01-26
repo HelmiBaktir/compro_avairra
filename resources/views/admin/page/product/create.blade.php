@@ -2,7 +2,7 @@
 @section('title','Product')
 
 @section('toolbar')
-@include('admin/components/toolbar',['title' => 'Product', 'subtitle' => 'Create - Product'])
+@include('admin/components/toolbar',['title' => ' Add Product', 'subtitle' => 'Product Data - Create Product'])
 @endsection
 
 @section('content')
@@ -10,15 +10,15 @@
     <form id="addProductForm" method="post">
         <div class="card-body ">
             <div class="form-group">
-                <label class="required form-label ">Series</label>
+                <label class="required form-label"><b>Series Product :</b></label>
                 <input type="text" name="series" class="form-control mb-2" placeholder="Write a series product"/>
             </div>
             <div class="form-group">
-                <label class="required form-label ">Name</label>
+                <label class="required form-label "><b>Product Name :</b></label>
                 <input type="text" name="name" class="form-control mb-2" placeholder="Write a name product"/>
             </div>
             <div class="form-group">
-                <label class="required form-label">Category</label>
+                <label class="required form-label"><b>Category of Product</b></label>
                 <select name="category" class="form-select mb-2" data-control="select2" data-placeholder="Select Category Product" >
                     <option></option>
                     @foreach($category as $key => $value)
@@ -27,17 +27,18 @@
                 </select>
             </div>
             <div class="form-group mb-2">
-                <label class="required form-label">Desc</label>
+                <label class="required form-label"><b>Description</b></label>
                 <textarea class="form-control" name="desc" id="tiny_desc">
        
                 </textarea>
-            </div>
+            </div><br>
             <div class="form-group">
-                <span class="required form-label">Image</span>
+                <span class="required form-label"><b>Product Image</b></span>
                 <input class="form-control mb-2" type="file" name="image" accept="image/*" onchange="loadFileLogo(event)">
             </div>
             <div class="form-group">
-                <img id="preview-logo" src="#" class="img-fluid h-50 w-50" alt="">
+                <img id="preview-logo" src="#" class="img-fluid h-50 w-50" alt="" style="display: none;">
+                <span id="image-status"><b>!! Product photos have not been uploaded !! </b></span>
             </div>
         </div>
         <div class="card-footer">
@@ -89,6 +90,22 @@
 
 </script>
 
+<script>
+    function loadFileLogo(event) {
+        var image = document.getElementById('preview-logo');
+        var status = document.getElementById('image-status');
+        image.src = URL.createObjectURL(event.target.files[0]);
+
+        // Cek apakah gambar telah diupload
+        if (event.target.files.length > 0) {
+            status.textContent = ''; // Gambar sudah diupload, kosongkan teks status
+            image.style.display = 'block'; // Tampilkan gambar
+        } else {
+            status.textContent = '!! Product photos have not been uploaded !!';
+            image.style.display = 'none'; // Sembunyikan gambar
+        }
+    }
+</script>
 
 <script>
     $('#kt_btn_create_product').click(function(e) {

@@ -2,7 +2,7 @@
 @section('title', 'Product -')
 @section('toolbar')
 
-@include('frontend/components/toolbar',['title' => 'Our Shop'])
+@include('frontend/components/toolbar',['title' => 'Our Shop','backgroundImage' => asset('background/product.jpg')])
 
 @endsection
 

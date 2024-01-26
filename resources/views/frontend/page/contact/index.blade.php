@@ -2,21 +2,20 @@
 @section('title', 'Contact -')
 @section('toolbar')
 
-@include('frontend/components/toolbar',['title' => 'Contact Us'])
+@include('frontend/components/toolbar',['title' => 'Contact Us', 'backgroundImage' => asset('background/contact_us.jpg')])
 
 @endsection
 
 @section('content')
 <!-- google-map-section -->
-<section class="google-map-section">
+<!-- {{ asset('easton/images/icons/map-marker.png') }} -->
+@php
+$pin = asset('easton/images/icons/map-marker.png');
+@endphp
+<br>
+<section class="google-map">
     <div class="map-inner p_relative d_block">
-        <div class="google-map" id="contact-google-map" data-map-lat="40.712776" data-map-lng="-74.005974"
-            data-icon-path="{{ asset('easton/images/icons/map-marker.png')}}"
-            data-map-title="Brooklyn, New York, United Kingdom" data-map-zoom="12" data-markers='{
-                        "marker-1": [40.712776, -74.005974, "<h4>Branch Office</h4><p>77/99 New York</p>","{{ asset('
-            easton/images/icons/map-marker.png')}}"] }'>
-
-        </div>
+        <iframe style="width: 100%; height: 100vh; border: 0;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d349.84126872674767!2d112.72828625976307!3d-7.240593167488873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fbf55d10a021%3A0x4bd9e94f28b9c4f9!2sPT.%20Avairra%20Indo%20Karya!5e0!3m2!1sid!2sid!4v1703750123679!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 </section>
 <!-- google-map-section end -->
@@ -28,12 +27,12 @@
         <div class="row clearfix">
             <div class="col-lg-4 col-md-12 col-sm-12 info-column">
                 <div class="contact-info mr_70">
-                    <h3>Get In Touch</h3>
-                    <p>Give us a call or drop by anytime, we answer all enquiries within 24 hours.</p>
+                    <h3> How can I assist you today?</h3>
+                    <p>We're here to help! Feel free to reach out anytime during business hours. We strive to answer all inquiries within 24 hours on weekdays.</p>
                     <ul class="info-list clearfix">
-                        <li>Modesto, 629 12th St, CA 95354 United States</li>
-                        <li><a href="mailto:infomain@gmail.com">infomain@gmail.com</a></li>
-                        <li><a href="tel:123045615523">+1 (230)-456-155-23</a></li>
+                        <li>Jalan Parangkusumo no 9, Krembangan, Surabaya</li>
+                        <li><a href="mailto:infomain@gmail.com">avairra@gmail.com</a></li>
+                        <li><a href="tel:123045615523">0817-0336-7870</a></li>
                     </ul>
                 </div>
             </div>
@@ -73,30 +72,11 @@
 </section>
 <!-- contact-style-three end -->
 
+@endsection
 
-<!-- subscribe-section -->
-<section class="subscribe-section p_relative">
-    <div class="auto-container">
-        <div class="inner-container">
-            <div class="row align-items-center clearfix">
-                <div class="col-lg-6 col-md-12 col-sm-12 text-column">
-                    <div class="text p_relative d_block">
-                        <h2>Subscribe to Our Newsletter</h2>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12 col-sm-12 form-column">
-                    <div class="form-inner p_relative d_block">
-                        <form action="index.html" method="post">
-                            <div class="form-group">
-                                <input type="email" name="email" placeholder="Your email address" required="">
-                                <button type="submit">Subscribe Now<i class="icon-7"></i></button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- subscribe-section end -->
+@section('script')
+    <!-- map script -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-CE0deH3Jhj6GN4YvdCFZS7DpbXexzGU"></script>
+    <script src="{{ asset('easton/js/gmaps.js')}}"></script>
+    <script src="{{ asset('easton/js/map-helper.js')}}"></script>
 @endsection

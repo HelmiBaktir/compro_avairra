@@ -11,15 +11,15 @@
         @method('put')
         <div class="card-body ">
             <div class="form-group">
-                <label class="required form-label ">Series</label>
+                <label class="required form-label "><b>Series Product :</b></label>
                 <input type="text" name="series" class="form-control mb-2" value="{{ $product->series }}" placeholder="Write a series product"/>
             </div>
             <div class="form-group">
-                <label class="required form-label ">Name</label>
+                <label class="required form-label "><b>Product Name :</b></label>
                 <input type="text" name="name" class="form-control mb-2"  value="{{ $product->name }}"  placeholder="Write a name product"/>
             </div>
             <div class="form-group">
-                <label class="required form-label">Category</label>
+                <label class="required form-label"><b>Category of Product</b></label>
                 <select name="category" class="form-select mb-2" data-control="select2" data-placeholder="Select Category Product" >
                     <option></option>
                     @foreach($category as $key => $value)
@@ -28,13 +28,13 @@
                 </select>
             </div>
             <div class="form-group mb-2">
-                <label class="required form-label">Desc</label>
+                <label class="required form-label"><b>Description</b></label>
                 <textarea class="form-control" name="desc" id="tiny_desc">
                     {!! $product->desc  !!}
                 </textarea>
-            </div>
+            </div><br>
             <div class="form-group">
-                <span class="required form-label">Image</span>
+                <span class="required form-label"><b>Product Image</b></span>
                 <input class="form-control mb-2" type="file" name="image" accept="image/*" onchange="loadFileLogo(event)">
             </div>
             <div class="form-group">
@@ -116,8 +116,8 @@
                             Swal.fire({
                                 title: data.msg
                                 , icon:'success'
-                                , buttonsStyling: false
-                                , showConfirmButton: false
+                                , buttonsStyling: true
+                                , showConfirmButton: true
                             }).then(function(result) {
                                 window.location.href = "{{ route('products.index') }}"
                             });

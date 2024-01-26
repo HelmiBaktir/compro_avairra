@@ -68,7 +68,7 @@
     <script src="{{ asset('easton/js/parallax-scroll.js')}}"></script>
     <script src="{{ asset('easton/js/product-filter.js')}}"></script>
     <script src="{{ asset('easton/js/script.js')}}"></script>
-    <script src="assets/js/jquery.bootstrap-touchspin.js"></script>
+    <script src="{{ asset('easton/js/jquery.bootstrap-touchspin.js')}}"></script>
     @yield('script')
 </body>
 </html>

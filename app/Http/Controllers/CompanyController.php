@@ -58,8 +58,8 @@ class CompanyController extends Controller
                 ->addColumn('Action', function ($item) {
                     $encryptedIdString = "'".strval(encrypt($item->id))."'";
                     $button ='
-                    <button onclick="showModalUpdateCompany('.$encryptedIdString.')" class="btn btn-primary border border-1  py-2">Update</button>
-                    <button onclick="deleteCompany('.$encryptedIdString.')" class="btn btn-danger border border-1  py-2">Delete</button>';
+                    <button onclick="showModalUpdateCompany('.$encryptedIdString.')" class="btn btn-primary border border-1  py-2">Update</button>';
+                    //<button onclick="deleteCompany('.$encryptedIdString.')" class="btn btn-danger border border-1  py-2">Delete</button>';
                     return $button;
                 })
                 ->rawColumns(['No','Name','Email','Phone Number','Address','Action'])
