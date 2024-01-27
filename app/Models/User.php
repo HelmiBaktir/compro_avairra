@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -41,4 +42,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function hasRole($roles)
+    {
+        return in_array($this->role, (array)$roles);
+    }
+
+    public function dailyTasks(){
+        return $this->hasMany(DailyTask::class);
+    }
+
 }

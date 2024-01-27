@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\DailyTask;
+use App\Models\User;
+use Illuminate\Support\Facades\Validator;
+use DataTables;
 
 class HomeController extends Controller
 {
@@ -23,6 +28,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.page.home.index');
+        try {
+            if(Auth::user()->role == 'admin'){
+                return view('admin.page.home.index');
+            }
+            else{
+                return view('admin.page.dailytask.index');
+            }
+        } catch (\Throwable $th) {
+            dd($th->getMessage());
+        }
     }
 }

@@ -2,10 +2,12 @@
 @section('title', 'About Us -')
 
 @section('toolbar')
-@include('frontend/components/toolbar', ['title' => 'About Us'])
+@include('frontend/components/toolbar', ['title' => 'About Us', 'backgroundImage' => asset('background/about_us.jpg')])
 @endsection
 
 @section('content')
+
+<!-- start about us section  -->
 <section class="about-section sec-pad">
     <div class="pattern-layer-2" style="background-image: url({{ asset('easton/images/shape/shape-24.png') }});"></div>
     <div class="auto-container">
@@ -45,34 +47,32 @@
                     <div class="content-box p_relative d_block ml_30">
                         <div class="sec-title p_relative mb_25">
                             <h5 class="d_block fs_17 lh_25 fw_medium mb_9">About Us</h5>
-                            <h2 class="d_block fs_40 lh_50 fw_bold">Residential & Commercial Electrical Services</h2>
+                            <h2 class="d_block fs_40 lh_50 fw_bold">Security and Efficient Energy Services</h2>
                         </div>
                         <div class="text p_relative d_block mb_30">
-                            <p>All of our services are backed by our 100% satisfaction guarantee. Our electricians can
-                                install anything from new security lighting for outdoors to a whole home generator that
-                                will keep your appliances working during a power outage.</p>
+                            <p>PT. Avairra Indo Karya was founded in 2014 by two highly competent people in its field, namely Mr. Abdullah Baraja (Chief Commissioner) and Mr. Ali Baraja(Chief Director) with the aim of providing the latest solutions on security and energy & efficiency measurement solutions to protect income. We are trusted as the sole agent of several international companies to provide the best solution. Moreover, we have ISO 9000 certification which we have international standard quality assurance.</p>
                         </div>
                         <div class="inner p_relative d_block mb_40">
                             <div class="row clearfix">
                                 <div class="col-lg-6 col-md-6 col-sm-12 single-column">
                                     <div class="single-item">
-                                        <div class="icon-box"><i class="icon-9"></i></div>
-                                        <h4>Emergency Repairs</h4>
+                                        <div class="icon-box"><i class="icon-11"></i></div>
+                                        <h4>Trusted Product</h4>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 single-column">
                                     <div class="single-item">
                                         <div class="icon-box"><i class="icon-10"></i></div>
-                                        <h4>Rewiring and Check-up</h4>
+                                        <h4>Guaranteed All Products</h4>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <ul class="list-style-one clearfix">
+                        <!-- <ul class="list-style-one clearfix">
                             <li>Emergency power solutions (generators)</li>
                             <li>Wiring and installation/upgrades</li>
                             <li>Full-service electrical layout, design</li>
-                        </ul>
+                        </ul> -->
                         <figure class="signature"><img src="{{ asset('easton/images/icons/signature-1.png') }}" alt="">
                         </figure>
                     </div>
@@ -81,191 +81,126 @@
         </div>
     </div>
 </section>
+<!-- end section about us -->
 
+<!-- start section our service -->
 <section class="service-style-three p_relative sec-pad bg-color-3 centred">
     <div class="pattern-layer" style="background-image: url({{ asset('easton/images/shape/shape-32.png') }});"></div>
     <div class="auto-container">
         <div class="sec-title p_relative mb_50">
             <h5 class="d_block fs_17 lh_25 fw_medium mb_9">Our Services</h5>
-            <h2 class="d_block fs_40 lh_50 fw_bold">We are a Full Service Electrical <br />Contractor</h2>
+            <h2 class="d_block fs_40 lh_50 fw_bold">Best Service From Our Heart to <br />All Customer</h2>
         </div>
         <div class="three-item-carousel owl-carousel owl-theme owl-nav-none">
             <div class="service-block-two">
                 <div class="inner-box">
-                    <figure class="image-box"><a href="air-conditioning.html"><img
-                                src="{{ asset('easton/images/service/service-9.jpg') }}" alt=""></a></figure>
+                    <figure class="image-box"><img src="{{ asset('easton/images/service/service-9.jpg') }}" alt=""></figure>
                     <div class="lower-content">
                         <div class="icon-box">
                             <div class="icon-shape"
                                 style="background-image: url({{ asset('easton/images/shape/shape-31.png') }});"></div>
-                            <div class="icon"><i class="icon-15"></i></div>
+                            <div class="icon"><i class="icon-13"></i></div>
                         </div>
-                        <h3><a href="air-conditioning.html">Air Conditioning</a></h3>
-                        <p>Lorem ipsum dolor amet consectur adicing elit sed.</p>
-                        <div class="link"><a href="air-conditioning.html"><span>Read more</span></a></div>
+                        <h3>Energy Management System</h3>
+                        <p>Maximize electrical system management with real-time data acquisition.</p>
                     </div>
                 </div>
             </div>
             <div class="service-block-two">
                 <div class="inner-box">
-                    <figure class="image-box"><a href="heating-service.html"><img
-                                src="{{ asset('easton/images/service/service-10.jpg') }}" alt=""></a></figure>
+                    <figure class="image-box"><img src="{{ asset('easton/images/service/service-9.jpg') }}" alt=""></figure>
                     <div class="lower-content">
                         <div class="icon-box">
                             <div class="icon-shape"
                                 style="background-image: url({{ asset('easton/images/shape/shape-31.png') }});"></div>
-                            <div class="icon"><i class="icon-16"></i></div>
+                            <div class="icon"><i class="icon-19"></i></div>
                         </div>
-                        <h3><a href="heating-service.html">Heating Service</a></h3>
-                        <p>Lorem ipsum dolor amet consectur adicing elit sed.</p>
-                        <div class="link"><a href="heating-service.html"><span>Read more</span></a></div>
+                        <h3>Measuring and Monitoring of Pumps Performance</h3>
+                        <p>Optimize pump efficiency and reliability.</p>
                     </div>
                 </div>
             </div>
             <div class="service-block-two">
                 <div class="inner-box">
-                    <figure class="image-box"><a href="electrical-panels.html"><img
-                                src="{{ asset('easton/images/service/service-11.jpg') }}" alt=""></a></figure>
+                    <figure class="image-box"><img src="{{ asset('easton/images/service/service-9.jpg') }}" alt=""></figure>
                     <div class="lower-content">
                         <div class="icon-box">
                             <div class="icon-shape"
                                 style="background-image: url({{ asset('easton/images/shape/shape-31.png') }});"></div>
-                            <div class="icon"><i class="icon-17"></i></div>
+                            <div class="icon"><i class="icon-12"></i></div>
                         </div>
-                        <h3><a href="electrical-panels.html">Eectrical Service</a></h3>
-                        <p>Lorem ipsum dolor amet consectur adicing elit sed.</p>
-                        <div class="link"><a href="electrical-panels.html"><span>Read more</span></a></div>
+                        <h3>Energy Metering Solution</h3>
+                        <p>Energy measurement solutions provide accurate and efficient monitoring.</p>
                     </div>
                 </div>
             </div>
             <div class="service-block-two">
                 <div class="inner-box">
-                    <figure class="image-box"><a href="air-conditioning.html"><img
-                                src="{{ asset('easton/images/service/service-9.jpg') }}" alt=""></a></figure>
+                    <figure class="image-box"><img src="{{ asset('easton/images/service/service-9.jpg') }}" alt=""></figure>
                     <div class="lower-content">
                         <div class="icon-box">
                             <div class="icon-shape"
                                 style="background-image: url({{ asset('easton/images/shape/shape-31.png') }});"></div>
-                            <div class="icon"><i class="icon-15"></i></div>
+                            <div class="icon"><i class="icon-14"></i></div>
                         </div>
-                        <h3><a href="air-conditioning.html">Air Conditioning</a></h3>
-                        <p>Lorem ipsum dolor amet consectur adicing elit sed.</p>
-                        <div class="link"><a href="air-conditioning.html"><span>Read more</span></a></div>
+                        <h3>Integrated Energy Systems</h3>
+                        <p>Monitoring and analysis of asset security systems, automation of energy production.</p>
                     </div>
                 </div>
             </div>
             <div class="service-block-two">
                 <div class="inner-box">
-                    <figure class="image-box"><a href="heating-service.html"><img
-                                src="{{ asset('easton/images/service/service-10.jpg') }}" alt=""></a>
-                    </figure>
+                    <figure class="image-box"><img src="{{ asset('easton/images/service/service-9.jpg') }}" alt=""></figure>
                     <div class="lower-content">
                         <div class="icon-box">
                             <div class="icon-shape"
                                 style="background-image: url({{ asset('easton/images/shape/shape-31.png') }});"></div>
-                            <div class="icon"><i class="icon-16"></i></div>
+                            <div class="icon"><i class="icon-18"></i></div>
                         </div>
-                        <h3><a href="heating-service.html">Heating Service</a></h3>
-                        <p>Lorem ipsum dolor amet consectur adicing elit sed.</p>
-                        <div class="link"><a href="heating-service.html"><span>Read more</span></a></div>
+                        <h3>Asset Security Systems</h3>
+                        <p>onitor and secure assets with state-of-the-art security system solutions for optimal protection.</p>
                     </div>
                 </div>
             </div>
             <div class="service-block-two">
                 <div class="inner-box">
-                    <figure class="image-box"><a href="electrical-panels.html"><img
-                                src="{{ asset('easton/images/service/service-11.jpg') }}" alt=""></a>
-                    </figure>
+                    <figure class="image-box"><img src="{{ asset('easton/images/service/service-9.jpg') }}" alt=""></figure>
                     <div class="lower-content">
                         <div class="icon-box">
                             <div class="icon-shape"
                                 style="background-image: url({{ asset('easton/images/shape/shape-31.png') }});"></div>
-                            <div class="icon"><i class="icon-17"></i></div>
+                            <div class="icon"><i class="icon-20"></i></div>
                         </div>
-                        <h3><a href="electrical-panels.html">Eectrical Service</a></h3>
-                        <p>Lorem ipsum dolor amet consectur adicing elit sed.</p>
-                        <div class="link"><a href="electrical-panels.html"><span>Read more</span></a></div>
-                    </div>
-                </div>
-            </div>
-            <div class="service-block-two">
-                <div class="inner-box">
-                    <figure class="image-box"><a href="air-conditioning.html"><img
-                                src="{{ asset('easton/images/service/service-9.jpg') }}" alt=""></a></figure>
-                    <div class="lower-content">
-                        <div class="icon-box">
-                            <div class="icon-shape"
-                                style="background-image: url({{ asset('easton/images/shape/shape-31.png') }});"></div>
-                            <div class="icon"><i class="icon-15"></i></div>
-                        </div>
-                        <h3><a href="air-conditioning.html">Air Conditioning</a></h3>
-                        <p>Lorem ipsum dolor amet consectur adicing elit sed.</p>
-                        <div class="link"><a href="air-conditioning.html"><span>Read more</span></a></div>
-                    </div>
-                </div>
-            </div>
-            <div class="service-block-two">
-                <div class="inner-box">
-                    <figure class="image-box"><a href="heating-service.html"><img
-                                src="{{ asset('easton/images/service/service-10.jpg') }}" alt=""></a>
-                    </figure>
-                    <div class="lower-content">
-                        <div class="icon-box">
-                            <div class="icon-shape"
-                                style="background-image: url({{ asset('easton/images/shape/shape-31.png') }});"></div>
-                            <div class="icon"><i class="icon-16"></i></div>
-                        </div>
-                        <h3><a href="heating-service.html">Heating Service</a></h3>
-                        <p>Lorem ipsum dolor amet consectur adicing elit sed.</p>
-                        <div class="link"><a href="heating-service.html"><span>Read more</span></a></div>
-                    </div>
-                </div>
-            </div>
-            <div class="service-block-two">
-                <div class="inner-box">
-                    <figure class="image-box"><a href="electrical-panels.html"><img
-                                src="{{ asset('easton/images/service/service-11.jpg') }}" alt=""></a>
-                    </figure>
-                    <div class="lower-content">
-                        <div class="icon-box">
-                            <div class="icon-shape"
-                                style="background-image: url({{ asset('easton/images/shape/shape-31.png') }});"></div>
-                            <div class="icon"><i class="icon-17"></i></div>
-                        </div>
-                        <h3><a href="electrical-panels.html">Eectrical Service</a></h3>
-                        <p>Lorem ipsum dolor amet consectur adicing elit sed.</p>
-                        <div class="link"><a href="electrical-panels.html"><span>Read more</span></a></div>
+                        <h3>Automation Systems</h3>
+                        <p>Advanced automation system to improve the efficiency and productivity of your business.</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- service-style-three end -->
+<!-- end section our service end -->
 
-
-<!-- testimonial-style-two -->
+<!-- start testimonial section -->
 <section class="testimonial-style-two about-page p_relative">
     <div class="bg-layer"></div>
     <div class="auto-container">
         <div class="sec-title light p_relative mb_50 centred">
             <h5 class="d_block fs_17 lh_25 fw_medium mb_9">Testimonials</h5>
-            <h2 class="d_block fs_40 lh_50 fw_bold">What Our Client Say <br />About Easton.</h2>
+            <h2 class="d_block fs_40 lh_50 fw_bold">What Our Client Say <br />About PT.Avairra.</h2>
         </div>
         <div class="two-item-carousel owl-carousel owl-theme owl-nav-none">
             <div class="testimonial-block-one">
                 <div class="inner-box p_relative d_block">
                     <div class="light-icon"><img src="{{ asset('easton/images/icons/icon-3.png') }}" alt="">
                     </div>
-                    <div class="icon-box p_relative d_block fs_65"><i class="icon-31"></i></div>
-                    <p>Adipisicing elit sed do eiusmod tempor incid labore et dolore magna aliqua enim minim quis veniam
-                        nostrud exercition ulamco laboris nis aliquip commodo.</p>
+                    <p>Produk yang diberikan memiliki kualitas produk yang sangat baik dan sangat membantu memenuhi kebutuhan. Harga yang diberikan juga sepadan dengan yang di dapatkan</p>
                     <div class="author-box p_relative d_block">
                         <figure class="author-thumb p_absolute l_0 t_0 w_70 h_70 b_radius_50"><img
-                                src="{{ asset('easton/images/resource/testimonial-1.jpg') }}" alt="">
+                                src="{{ asset('easton/images/avatar/testimonial_1.jpg') }}" alt="">
                         </figure>
-                        <h5>Rachel McAdams</h5>
-                        <span class="designation p_relative d_block">Electrician</span>
+                        <h5>Harry Sunarsa</h5>
+                        <span class="designation p_relative d_block">PT.Teravisindo Sukses</span>
                     </div>
                 </div>
             </div>
@@ -273,15 +208,13 @@
                 <div class="inner-box p_relative d_block">
                     <div class="light-icon"><img src="{{ asset('easton/images/icons/icon-3.png') }}" alt="">
                     </div>
-                    <div class="icon-box p_relative d_block fs_65"><i class="icon-31"></i></div>
-                    <p>Adipisicing elit sed do eiusmod tempor incid labore et dolore magna aliqua enim minim quis veniam
-                        nostrud exercition ulamco laboris nis aliquip commodo.</p>
+                    <p>Produk cukup bersaing dan kompetitif, bisa request produk bedasarkan permintaan dan kebutuhan. Sepadan dengan harganya tetapi mohon diperhitungkan kembali untuk harga terbaik</p>
                     <div class="author-box p_relative d_block">
                         <figure class="author-thumb p_absolute l_0 t_0 w_70 h_70 b_radius_50"><img
-                                src="{{ asset('easton/images/resource/testimonial-2.jpg') }}" alt="">
+                                src="{{ asset('easton/images/avatar/testimonial_2.jpg') }}" alt="">
                         </figure>
-                        <h5>Jhon Haris</h5>
-                        <span class="designation p_relative d_block">Electrician</span>
+                        <h5>Witarto</h5>
+                        <span class="designation p_relative d_block">PT.Kifa Citra Pratama</span>
                     </div>
                 </div>
             </div>
@@ -289,15 +222,13 @@
                 <div class="inner-box p_relative d_block">
                     <div class="light-icon"><img src="{{ asset('easton/images/icons/icon-3.png') }}" alt="">
                     </div>
-                    <div class="icon-box p_relative d_block fs_65"><i class="icon-31"></i></div>
-                    <p>Adipisicing elit sed do eiusmod tempor incid labore et dolore magna aliqua enim minim quis veniam
-                        nostrud exercition ulamco laboris nis aliquip commodo.</p>
+                    <p>Produk-produk yang ditawarkan sangat bagus dan bergaransi. Layanan yang diberikan juga bagus dan saya bisa memahami produk dengan sangat baik.</p>
                     <div class="author-box p_relative d_block">
                         <figure class="author-thumb p_absolute l_0 t_0 w_70 h_70 b_radius_50"><img
-                                src="{{ asset('easton/images/resource/testimonial-1.jpg') }}" alt="">
+                                src="{{ asset('easton/images/avatar/testimonial_3.jpg') }}" alt="">
                         </figure>
-                        <h5>Rachel McAdams</h5>
-                        <span class="designation p_relative d_block">Electrician</span>
+                        <h5>Yan Budi Setiawan</h5>
+                        <span class="designation p_relative d_block">PT.Prima Mitranti Sejati</span>
                     </div>
                 </div>
             </div>
@@ -305,15 +236,13 @@
                 <div class="inner-box p_relative d_block">
                     <div class="light-icon"><img src="{{ asset('easton/images/icons/icon-3.png') }}" alt="">
                     </div>
-                    <div class="icon-box p_relative d_block fs_65"><i class="icon-31"></i></div>
-                    <p>Adipisicing elit sed do eiusmod tempor incid labore et dolore magna aliqua enim minim quis veniam
-                        nostrud exercition ulamco laboris nis aliquip commodo.</p>
+                    <p>Pendapat saya untuk produknya bagus dan memenuhi kebutuhan, memiliki kualitas yang baik serta layanan yang baik juga, harganya juga affordable</p>
                     <div class="author-box p_relative d_block">
                         <figure class="author-thumb p_absolute l_0 t_0 w_70 h_70 b_radius_50"><img
-                                src="{{ asset('easton/images/resource/testimonial-2.jpg') }}" alt="">
+                                src="{{ asset('easton/images/avatar/testimonial_4.jpg') }}" alt="">
                         </figure>
-                        <h5>Jhon Haris</h5>
-                        <span class="designation p_relative d_block">Electrician</span>
+                        <h5>Andi Diani Ambarwati</h5>
+                        <span class="designation p_relative d_block">PT.Powertek Indoasia</span>
                     </div>
                 </div>
             </div>
@@ -321,48 +250,30 @@
                 <div class="inner-box p_relative d_block">
                     <div class="light-icon"><img src="{{ asset('easton/images/icons/icon-3.png') }}" alt="">
                     </div>
-                    <div class="icon-box p_relative d_block fs_65"><i class="icon-31"></i></div>
-                    <p>Adipisicing elit sed do eiusmod tempor incid labore et dolore magna aliqua enim minim quis veniam
-                        nostrud exercition ulamco laboris nis aliquip commodo.</p>
+                    <p>Pendapat umum saya tentang produk yang ditawarkan bagus dan menarik, kualitas baik dan sudah memenuhi sesuai dengan kebutuhan. layanan nya juga bagus dan sudah memenuhi, dan harga juga sebanding</p>
                     <div class="author-box p_relative d_block">
                         <figure class="author-thumb p_absolute l_0 t_0 w_70 h_70 b_radius_50"><img
-                                src="{{ asset('easton/images/resource/testimonial-1.jpg') }}" alt="">
+                                src="{{ asset('easton/images/avatar/testimonial_5.jpg') }}" alt="">
                         </figure>
-                        <h5>Rachel McAdams</h5>
-                        <span class="designation p_relative d_block">Electrician</span>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-block-one">
-                <div class="inner-box p_relative d_block">
-                    <div class="light-icon"><img src="{{ asset('easton/images/icons/icon-3.png') }}" alt="">
-                    </div>
-                    <div class="icon-box p_relative d_block fs_65"><i class="icon-31"></i></div>
-                    <p>Adipisicing elit sed do eiusmod tempor incid labore et dolore magna aliqua enim minim quis veniam
-                        nostrud exercition ulamco laboris nis aliquip commodo.</p>
-                    <div class="author-box p_relative d_block">
-                        <figure class="author-thumb p_absolute l_0 t_0 w_70 h_70 b_radius_50"><img
-                                src="{{ asset('easton/images/resource/testimonial-2.jpg') }}" alt="">
-                        </figure>
-                        <h5>Jhon Haris</h5>
-                        <span class="designation p_relative d_block">Electrician</span>
+                        <h5>Pak Tirto</h5>
+                        <span class="designation p_relative d_block">PT.Intimuara Electrindo</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- testimonial-style-two end -->
+<!-- end testimonial section -->
 
 
-<!-- working-style-two -->
+<!-- how its work section start -->
 <section class="working-style-two p_relative sec-pad">
     <div class="auto-container">
         <div class="row clearfix">
             <div class="col-lg-6 col-md-12 col-sm-12 title-column">
                 <div class="sec-title p_relative">
                     <h5 class="d_block fs_17 lh_25 fw_medium mb_9">How It’s Work</h5>
-                    <h2 class="d_block fs_40 lh_50 fw_bold">3 Easiest Step To Work with Easton</h2>
+                    <h2 class="d_block fs_40 lh_50 fw_bold">3 Easiest Step To Work with PT.Avairra</h2>
                 </div>
             </div>
         </div>
@@ -379,12 +290,10 @@
                     <div class="row clearfix">
                         <div class="col-lg-6 col-md-12 col-sm-12 content-column">
                             <div class="text mr_30">
-                                <h3><i class="icon-45"></i>Make An Appointment</h3>
-                                <p>Adipisicing elit sed do eiusmod tempor incididunt labore et dolore magna aliqua enim
-                                    minim veniam quis nostrud exercition ulamco laboris nis aliquip commodo consequat
-                                    duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
-                                <p>Cillum dolore eu fugiat nulla pariatur. excepteur sint occaecat cup idatat non
-                                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                <h3><i class="icon-45"></i>Ask a Product and Make an Appointment</h3>
+                                <p>When you're interested in a specific product, the first step is to schedule an appointment with us for further inquiries. Our experienced sales team will be delighted to provide more detailed information about the product. 
+                                    Whether it's technical questions, specifications, or customization options, we're ready to help you 
+                                    find the solution that best fits your needs.</p>
                                 <a href="appointment.html" class="theme-btn btn-one">Appointment</a>
                             </div>
                         </div>
@@ -393,7 +302,7 @@
                                 <div class="shape"
                                     style="background-image: url({{ asset('easton/images/shape/shape-33.png') }});">
                                 </div>
-                                <figure class="image"><img src="{{ asset('easton/images/resource/working-5.jpg') }}"
+                                <figure class="image"><img src="{{ asset('background/schedule_step1.jpg') }}"
                                         alt=""></figure>
                             </div>
                         </div>
@@ -403,12 +312,10 @@
                     <div class="row clearfix">
                         <div class="col-lg-6 col-md-12 col-sm-12 content-column">
                             <div class="text mr_30">
-                                <h3><i class="icon-45"></i>Select Your Service</h3>
-                                <p>Adipisicing elit sed do eiusmod tempor incididunt labore et dolore magna aliqua enim
-                                    minim veniam quis nostrud exercition ulamco laboris nis aliquip commodo consequat
-                                    duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
-                                <p>Cillum dolore eu fugiat nulla pariatur. excepteur sint occaecat cup idatat non
-                                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                <h3><i class="icon-45"></i>Select Your Product</h3>
+                                <p>After gaining a clear understanding of your needs, we'll provide a comprehensive quotation. This includes related product catalogs, the latest price list, 
+                                    and additional information you may need to make an informed decision. 
+                                    We ensure you have all the necessary tools to make the right choice.</p>
                                 <a href="appointment.html" class="theme-btn btn-one">Appointment</a>
                             </div>
                         </div>
@@ -417,7 +324,7 @@
                                 <div class="shape"
                                     style="background-image: url({{ asset('easton/images/shape/shape-33.png') }});">
                                 </div>
-                                <figure class="image"><img src="{{ asset('easton/images/resource/working-4.jpg') }}"
+                                <figure class="image"><img src="{{ asset('background/select_product_step2.jpg') }}"
                                         alt=""></figure>
                             </div>
                         </div>
@@ -427,12 +334,10 @@
                     <div class="row clearfix">
                         <div class="col-lg-6 col-md-12 col-sm-12 content-column">
                             <div class="text mr_30">
-                                <h3><i class="icon-45"></i>Handover Service</h3>
-                                <p>Adipisicing elit sed do eiusmod tempor incididunt labore et dolore magna aliqua enim
-                                    minim veniam quis nostrud exercition ulamco laboris nis aliquip commodo consequat
-                                    duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
-                                <p>Cillum dolore eu fugiat nulla pariatur. excepteur sint occaecat cup idatat non
-                                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                <h3><i class="icon-45"></i>Price Negotiation and Order Processing</h3>
+                                <p>If there's a need for price negotiation or additional considerations before you make the final decision, 
+                                    we're always open to discussions. Once the price agreement is reached, and order details are confirmed, our team will promptly process your order with the Pre-Order (PO) system. 
+                                    With an efficient process, we ensure that your order is handled quickly and accurately to meet your requirements.</p>
                                 <a href="appointment.html" class="theme-btn btn-one">Appointment</a>
                             </div>
                         </div>
@@ -441,7 +346,7 @@
                                 <div class="shape"
                                     style="background-image: url({{ asset('easton/images/shape/shape-33.png') }});">
                                 </div>
-                                <figure class="image"><img src="{{ asset('easton/images/resource/working-6.jpg') }}"
+                                <figure class="image"><img src="{{ asset('background/order_step3.jpg') }}"
                                         alt=""></figure>
                             </div>
                         </div>
@@ -451,61 +356,15 @@
         </div>
     </div>
 </section>
-<!-- working-style-two end -->
+<!-- how its work section end -->
 
 
-<!-- project-style-two -->
-<section class="project-style-two">
-    <div class="outer-container">
-        <div class="project-carousel-2 owl-carousel owl-theme owl-dots-none nav-style-one">
-            <div class="project-block-two">
-                <div class="inner-box">
-                    <figure class="image-box"><img src="{{ asset('easton/images/project/project-5.jpg') }}" alt="">
-                    </figure>
-                    <div class="view-btn"><a href="{{ asset('easton/images/project/project-5.jpg') }}"
-                            class="lightbox-image" data-fancybox="gallery"><i class="icon-28"></i></a></div>
-                    <div class="text">
-                        <h4><a href="project-details.html">House Wiring Repair</a></h4>
-                        <span>Installation</span>
-                    </div>
-                </div>
-            </div>
-            <div class="project-block-two">
-                <div class="inner-box">
-                    <figure class="image-box"><img src="{{ asset('easton/images/project/project-6.jpg') }}" alt="">
-                    </figure>
-                    <div class="view-btn"><a href="{{ asset('easton/images/project/project-6.jpg') }}"
-                            class="lightbox-image" data-fancybox="gallery"><i class="icon-28"></i></a></div>
-                    <div class="text">
-                        <h4><a href="project-details.html">House Wiring Repair</a></h4>
-                        <span>Installation</span>
-                    </div>
-                </div>
-            </div>
-            <div class="project-block-two">
-                <div class="inner-box">
-                    <figure class="image-box"><img src="{{ asset('easton/images/project/project-7.jpg') }}" alt="">
-                    </figure>
-                    <div class="view-btn"><a href="{{ asset('easton/images/project/project-7.jpg') }}"
-                            class="lightbox-image" data-fancybox="gallery"><i class="icon-28"></i></a></div>
-                    <div class="text">
-                        <h4><a href="project-details.html">House Wiring Repair</a></h4>
-                        <span>Installation</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- project-style-two end -->
-
-
-<!-- team-style-two -->
+<!-- team section start -->
 <section class="team-style-two p_relative">
     <div class="auto-container">
         <div class="sec-title p_relative mb_45 centred">
             <h5 class="d_block fs_17 lh_25 fw_medium mb_9">Our Staff</h5>
-            <h2 class="d_block fs_40 lh_50 fw_bold">Our Professional Electrician <br />Staff</h2>
+            <h2 class="d_block fs_40 lh_50 fw_bold">Our Professional <br />Staff</h2>
         </div>
         <div class="three-item-carousel owl-carousel owl-theme owl-nav-none">
             <div class="team-block-two">
@@ -519,8 +378,8 @@
                         </ul>
                     </div>
                     <div class="content-box">
-                        <h3><a href="index-3.html">Jack Nicholson</a></h3>
-                        <span class="designation">Manager</span>
+                        <h3><a href="index-3.html">Abdullah Baraja</a></h3>
+                        <span class="designation">Chief Commissioner</span>
                     </div>
                 </div>
             </div>
@@ -535,8 +394,8 @@
                         </ul>
                     </div>
                     <div class="content-box">
-                        <h3><a href="index-3.html">Robert Downey</a></h3>
-                        <span class="designation">Electrician</span>
+                        <h3><a href="index-3.html">Ali Baraja</a></h3>
+                        <span class="designation">President director</span>
                     </div>
                 </div>
             </div>
@@ -551,7 +410,7 @@
                         </ul>
                     </div>
                     <div class="content-box">
-                        <h3><a href="index-3.html">Gerard Butler</a></h3>
+                        <h3><a href="index-3.html">Kamal Baktir</a></h3>
                         <span class="designation">Electrician</span>
                     </div>
                 </div>
@@ -567,120 +426,14 @@
                         </ul>
                     </div>
                     <div class="content-box">
-                        <h3><a href="index-3.html">Jack Nicholson</a></h3>
+                        <h3><a href="index-3.html">Adnan Baraja</a></h3>
                         <span class="designation">Manager</span>
-                    </div>
-                </div>
-            </div>
-            <div class="team-block-two">
-                <div class="inner-box">
-                    <div class="image-box">
-                        <figure class="image"><img src="{{ asset('easton/images/team/team-5.jpg') }}" alt=""></figure>
-                        <ul class="social-links clearfix">
-                            <li><a href="index-3.html"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="index-3.html"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="index-3.html"><i class="fab fa-linkedin-in"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="content-box">
-                        <h3><a href="index-3.html">Robert Downey</a></h3>
-                        <span class="designation">Electrician</span>
-                    </div>
-                </div>
-            </div>
-            <div class="team-block-two">
-                <div class="inner-box">
-                    <div class="image-box">
-                        <figure class="image"><img src="{{ asset('easton/images/team/team-6.jpg') }}" alt=""></figure>
-                        <ul class="social-links clearfix">
-                            <li><a href="index-3.html"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="index-3.html"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="index-3.html"><i class="fab fa-linkedin-in"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="content-box">
-                        <h3><a href="index-3.html">Gerard Butler</a></h3>
-                        <span class="designation">Electrician</span>
-                    </div>
-                </div>
-            </div>
-            <div class="team-block-two">
-                <div class="inner-box">
-                    <div class="image-box">
-                        <figure class="image"><img src="{{ asset('easton/images/team/team-4.jpg') }}" alt=""></figure>
-                        <ul class="social-links clearfix">
-                            <li><a href="index-3.html"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="index-3.html"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="index-3.html"><i class="fab fa-linkedin-in"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="content-box">
-                        <h3><a href="index-3.html">Jack Nicholson</a></h3>
-                        <span class="designation">Manager</span>
-                    </div>
-                </div>
-            </div>
-            <div class="team-block-two">
-                <div class="inner-box">
-                    <div class="image-box">
-                        <figure class="image"><img src="{{ asset('easton/images/team/team-5.jpg') }}" alt=""></figure>
-                        <ul class="social-links clearfix">
-                            <li><a href="index-3.html"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="index-3.html"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="index-3.html"><i class="fab fa-linkedin-in"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="content-box">
-                        <h3><a href="index-3.html">Robert Downey</a></h3>
-                        <span class="designation">Electrician</span>
-                    </div>
-                </div>
-            </div>
-            <div class="team-block-two">
-                <div class="inner-box">
-                    <div class="image-box">
-                        <figure class="image"><img src="{{ asset('easton/images/team/team-6.jpg') }}" alt=""></figure>
-                        <ul class="social-links clearfix">
-                            <li><a href="index-3.html"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="index-3.html"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="index-3.html"><i class="fab fa-linkedin-in"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="content-box">
-                        <h3><a href="index-3.html">Gerard Butler</a></h3>
-                        <span class="designation">Electrician</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- team-style-two end -->
+<!-- team section end -->
 
-
-<!-- subscribe-section -->
-<section class="subscribe-section p_relative">
-    <div class="auto-container">
-        <div class="inner-container">
-            <div class="row align-items-center clearfix">
-                <div class="col-lg-6 col-md-12 col-sm-12 text-column">
-                    <div class="text p_relative d_block">
-                        <h2>Subscribe to Our Newsletter</h2>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12 col-sm-12 form-column">
-                    <div class="form-inner p_relative d_block">
-                        <form action="index.html" method="post">
-                            <div class="form-group">
-                                <input type="email" name="email" placeholder="Your email address" required="">
-                                <button type="submit">Subscribe Now<i class="icon-7"></i></button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- subscribe-section end -->
 @endsection

@@ -20,16 +20,16 @@
                         </div>
                     </div>
                     <div class="fv-row mt-3">
-                        <label for="required" class="required fs-6 fw-semibold mb-2">Name</label>
+                        <label for="required" class="required fs-6 fw-semibold mb-2"><b>Name of Company</b></label>
                         <input type="text" class="form-control" name="name" placeholder="Write the company name">
                     </div>
                     <div class="fv-row mt-3">
-                        <label for="required" class="required fs-6 fw-semibold mb-2">Email</label>
+                        <label for="required" class="required fs-6 fw-semibold mb-2"><b>Email</b></label>
                         <input type="email" class="form-control" name="email" placeholder="Write the company email">
                     </div>
                     <div id="phone_div">
                         <div class="fv-row mt-3">
-                            <label for="required" class="required fs-6 fw-semibold mb-2">Phone Number</label>
+                            <label for="required" class="required fs-6 fw-semibold mb-2"><b>Phone Number</b></label>
                             <input type="number" class="form-control" name="phone_number[]"
                                 placeholder="Write the company number phone">
                         </div>
@@ -40,7 +40,7 @@
                     </div>
                     <div id="address_div">
                         <div class="fv-row mt-3">
-                            <label for="required" class="required fs-6 fw-semibold mb-2">Address</label>
+                            <label for="required" class="required fs-6 fw-semibold mb-2"><b>Address</b></label>
                             <textarea name="address[]" class="form-control" placeholder="Write the comany address"></textarea>
                         </div>
                     </div>
@@ -96,8 +96,8 @@
                             Swal.fire({
                                 title: data.msg,
                                 icon: 'success',
-                                buttonsStyling: false,
-                                showConfirmButton: false
+                                buttonsStyling: true,
+                                showConfirmButton: true
                             }).then(function(result) {
                                 $('#kt_modal_add_company').modal('hide');
                                 $('#kt_company_table').DataTable().ajax.reload();

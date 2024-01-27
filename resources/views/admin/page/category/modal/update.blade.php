@@ -20,11 +20,11 @@
                         </div>
                     </div>
                     <div class="fv-row mt-3">
-                        <label for="required" class="required fs-6 fw-semibold mb-2">Name</label>
+                        <label for="required" class="required fs-6 fw-semibold mb-2"><b>Name of Category</b></label>
                         <input type="text" class="form-control" name="name" placeholder="Write the category name" value="{{ $category->name }}">
                     </div>
                     <div class="fv-row mt-3">
-                        <label for="required" class="required fs-6 fw-semibold mb-2">Desc</label>
+                        <label for="required" class="required fs-6 fw-semibold mb-2"><b>Description</b></label>
                         <textarea name="desc" class="form-control" cols="30" rows="10" placeholder="Write the category desc">{{ $category->desc }}</textarea>
                     </div> 
                 </div>
@@ -75,8 +75,8 @@
                             Swal.fire({
                                 title: data.msg
                                 , icon:'success'
-                                , buttonsStyling: false
-                                , showConfirmButton: false
+                                , buttonsStyling: true
+                                , showConfirmButton: true
                             }).then(function(result) {
                                 $('#kt_modal_update_category').modal('hide');
                                 $('#kt_category_table').DataTable().ajax.reload();

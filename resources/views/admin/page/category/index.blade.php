@@ -1,8 +1,12 @@
 @extends('admin.layouts.base')
 @section('title','Category')
 
+@section('sidebar')
+
+@endsection
+
 @section('toolbar')
-@include('admin/components/toolbar',['title' => 'Product', 'subtitle' => 'Category'])
+@include('admin/components/toolbar',['title' => 'Category Data', 'subtitle' => 'Category Data'])
 @endsection
 
 @section('content')
@@ -23,7 +27,7 @@
 
     </div>
     <div class="card-body pt-0">
-        <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_category_table">
+        <table class="table align-middle table-row-dashed fs-6 gy-5 text-center" id="kt_category_table">
 
         </table>
     </div>
@@ -38,7 +42,7 @@
     $(document).ready(function() {
         var datatable = $('#kt_category_table').DataTable({
             "initComplete": function() {
-                $('#kt_category_table thead').addClass('bg-light-secondary fw-bold');
+                $('#kt_category_table thead th').addClass('bg-light-secondary fw-bold text-center justify-content-center align-content-center');
             },
             "columnDefs": [{
                 "defaultContent": "-",

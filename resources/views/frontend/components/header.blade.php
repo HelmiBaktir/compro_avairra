@@ -5,7 +5,7 @@
                 <ul class="info clearfix">
                     <li><i class="icon-1"></i>Sun-Fri  08:00AM-05:00PM</li>
                     <li><i class="icon-2"></i>Jln. Parang Kusuma No. 9i, Surabaya</li>
-                    <li><i class="icon-3"></i><a href="mailto:needhelp@info.com">avairra@gmail.com</a></li>
+                    <li><i class="icon-3"></i><a href="mailto:alibaraja@avairra.co.id">alibaraja@avairra.co.id</a></li>
                 </ul>
             </div>
             <div class="right-column">
@@ -42,14 +42,8 @@
                 </nav>
             </div>
             <div class="nav-right">
-                <div class="support-box">
-                    <h6><i class="icon-4"></i>Call: <a href="tel:123045615523">+1 (230)-456-155-23</a></h6>
-                </div>
-                <div class="search-box-outer search-toggler">
-                    <i class="icon-5"></i>
-                </div>
                 <div class="btn-box">
-                    <a href="index.html" class="theme-btn btn-one">Appointment</a>
+                    <a href="https://wa.me/6282229372706?text=Halo%20Admin%2C%20Saya%20ingin%20mendapatkan%20informasi%20lebih%20lanjut" class="theme-btn btn-one">Any Question?</a>
                 </div>
             </div>
         </div>
@@ -67,14 +61,8 @@
                 </nav>
             </div>
             <div class="nav-right">
-                <div class="support-box">
-                    <h6><i class="icon-4"></i>Call: <a href="tel:123045615523">+1 (230)-456-155-23</a></h6>
-                </div>
-                <div class="search-box-outer search-toggler">
-                    <i class="icon-5"></i>
-                </div>
                 <div class="btn-box">
-                    <a href="index.html" class="theme-btn btn-one">Appointment</a>
+                <a href="https://wa.me/6282229372706?text=Halo%20Admin%2C%20Saya%20ingin%20mendapatkan%20informasi%20lebih%20lanjut" class="theme-btn btn-one">Any Question?</a>
                 </div>
             </div>
         </div>
@@ -91,9 +79,9 @@
         <div class="contact-info">
             <h4>Contact Info</h4>
             <ul>
-                <li>Chicago 12, Melborne City, USA</li>
-                <li><a href="tel:+8801682648101">+88 01682648101</a></li>
-                <li><a href="mailto:info@example.com">info@example.com</a></li>
+                <li><i class="icon-1"></i>Sun-Fri  08:00AM-05:00PM</li>
+                <li><i class="icon-2"></i>Jln. Parang Kusuma No. 9i, Surabaya</li>
+                <li><i class="icon-3"></i><a href="mailto:alibaraja@avairra.co.id">alibaraja@avairra.co.id</a></li>
             </ul>
         </div>
         <div class="social-links">

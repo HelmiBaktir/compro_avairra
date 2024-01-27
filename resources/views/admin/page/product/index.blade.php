@@ -2,7 +2,7 @@
 @section('title','Product')
 
 @section('toolbar')
-@include('admin/components/toolbar',['title' => 'Product', 'subtitle' => 'Data'])
+@include('admin/components/toolbar',['title' => 'Product Data', 'subtitle' => 'Product Data'])
 @endsection
 
 @section('content')
@@ -23,7 +23,7 @@
 
     </div>
     <div class="card-body pt-0">
-        <table class="table align-middle table-row-dashed fs-6 gy-5 text-center" id="kt_products_table">
+        <table class= "table align-middle table-row-dashed fs-6 gy-5 text-center" id="kt_products_table">
 
         </table>
     </div>
@@ -37,69 +37,70 @@
 <script src="{{ asset('jeremia-assets/plugins/custom/fslightbox/fslightbox.bundle.js') }}"></script>
 
 <script>
-    $(document).ready(function() {
-        var datatable = $('#kt_products_table').DataTable({
-            "initComplete": function() {
-                $('#kt_products_table thead th').addClass('bg-light-secondary fw-bold text-center justify-content-center align-content-center');
+$(document).ready(function() {
+    var datatable = $('#kt_products_table').DataTable({
+        "initComplete": function() {
+            $('#kt_products_table thead th').addClass('bg-light-secondary fw-bold text-center justify-content-center align-content-center');
+        },
+        "columnDefs": [{
+            "defaultContent": "-",
+            "targets": "_all"
+        }],
+        processing: true,
+        serverSide: true,
+        ajax: "{{ route('products.table.admin') }}",
+        columns: [
+            {
+                data: 'No',
+                name: 'No',
+                title: 'No',
+                className: 'px-5 text-nowrap'
             },
-            "columnDefs": [{
-                "defaultContent": "-",
-                "targets": "_all"
-            }],
-            processing: true,
-            serverSide: true,
-            ajax: "{{ route('products.table.admin') }}",
-            columns: [
-                {
-                    data: 'No',
-                    name: 'No',
-                    title: 'No',
-                    className: 'px-5 text-nowrap'
-                },
-                {
-                    data: 'Image',
-                    name: 'Image',
-                    title: 'Image',
-                    className: 'text-nowrap'
-                },
-                {
-                    data: 'Nomor',
-                    name: 'Nomor',
-                    title: 'Nomor',
-                    className: 'text-nowrap'
-                },
-                {
-                    data: 'Name',
-                    name: 'Name',
-                    title: 'Name',
-                    className: 'text-nowrap'
-                },
-                {
-                    data: 'Series',
-                    name: 'Series',
-                    title: 'Series',
-                    className: 'text-nowrap'
-                },
-                {
-                    data: 'Category',
-                    name: 'Category',
-                    title: 'Category',
-                    className: 'text-nowrap'
-                },
-                {
-                    data: 'Action',
-                    name: 'Action',
-                    title: 'Action',
-                    className: 'text-nowrap px-5'
-                },
+            {
+                data: 'Image',
+                name: 'Image',
+                title: 'Image',
+                className: 'text-nowrap'
+            },
+            {
+                data: 'Nomor',
+                name: 'Nomor',
+                title: 'Nomor',
+                className: 'text-nowrap'
+            },
+            {
+                data: 'Name',
+                name: 'Name',
+                title: 'Name',
+                className: 'text-nowrap'
+            },
+            {
+                data: 'Series',
+                name: 'Series',
+                title: 'Series',
+                className: 'text-nowrap'
+            },
+            {
+                data: 'Category',
+                name: 'Category',
+                title: 'Category',
+                className: 'text-nowrap'
+            },
+            {
+                data: 'Action',
+                name: 'Action',
+                title: 'Action',
+                className: 'text-nowrap px-5'
+            },
           
-            ]
-        });
-        const filterSearch = document.querySelector('[data-kt-filter="search"]');
-        filterSearch.addEventListener('keyup', function (e) {
-            datatable.search(e.target.value).draw();
-        });
+        ]
     });
+
+    const filterSearch = document.querySelector('[data-kt-filter="search"]');
+    filterSearch.addEventListener('keyup', function (e) {
+        datatable.search(e.target.value).draw();
+    });
+});
 </script>
 
 <script>

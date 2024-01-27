@@ -23,7 +23,7 @@
 
     </div>
     <div class="card-body pt-0">
-        <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_sosial_media_table">
+        <table class="table align-middle table-row-dashed fs-6 gy-5 text-center" id="kt_sosial_media_table">
 
         </table>
     </div>
@@ -38,7 +38,7 @@
     $(document).ready(function() {
         var datatable = $('#kt_sosial_media_table').DataTable({
             "initComplete": function() {
-                $('#kt_sosial_meida_table thead').addClass('bg-light-secondary fw-bold');
+                $('#kt_sosial_media_table thead th').addClass('bg-light-secondary fw-bold text-center justify-content-center align-content-center');
             },
             "columnDefs": [{
                 "defaultContent": "-",
