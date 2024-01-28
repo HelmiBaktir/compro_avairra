@@ -41,7 +41,7 @@
                         </div>
                         <div class="separator my-2"></div>
                             <div class="menu-item px-5">
-                                <a href="#" role="button" id="logout" class="btn btn-success px-7">
+                                <a href="#" role="button" id="logout" class="menu-link px-7">
                                     <i class="fas fa-sign-out-alt"></i> Logout
                                 </a>
                             </div>

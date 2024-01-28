@@ -21,7 +21,7 @@
                             <ul class="links-list clearfix">
                                 <li><a href="{{ route('landing.home') }}">Home Pages</a></li>
                                 <li><a href="{{ route('landing.aboutUs') }}">About Pages</a></li>
-                                <li><a href="{{ route('landing.product') }}">Our Product Pages</a></li>
+                                <li><a href="{{ route('landing.products') }}">Our Product Pages</a></li>
                                 <li><a href="{{ route('landing.contact') }}">Contact Pages</a></li>
                             </ul>
                         </div>
@@ -34,9 +34,9 @@
                         </div>
                         <div class="widget-content">
                             <ul class="info-list clearfix">
-                                <li>Jalan ParangKusumo nomor 9, Krembangan, Surabaya, Jawa Timur</li>
-                                <li><a href="tel:23055873407">0817-0336-7870</a></li>
-                                <li><a href="mailto:sample@example.com">avairra@example.com</a></li>
+                                <li>{{ $address }}</li>
+                                <li><a href="tel:{{ $phone_number }}">{{ $phone_number }}</a></li>
+                                <li><a href="mailto:{{ $company->email }}">{{ $company->email }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
     <div class="footer-bottom p_relative">
         <div class="auto-container">
             <div class="bottom-inner p_relative">
-                <div class="copyright"><p><a href="index.html">PT.Avairra</a> &copy; 2023 All Right Reserved</p></div>
+                <div class="copyright"><p><a href="index.html">PT.Avairra</a> &copy; {{ date('Y') }} All Right Reserved</p></div>
             </div>
         </div>
     </div>

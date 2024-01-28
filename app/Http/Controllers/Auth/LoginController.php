@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
@@ -34,16 +35,19 @@ class LoginController extends Controller
      *
      * @return void
      */
-    protected function authenticated(Request $request, $user)
-    {
-        if ($user->role == 'admin') {
-            return redirect()->route('home');
-        } else {
-            return redirect()->route('dailytask.index');
-        }
+    // protected function authenticated(Request $request, $user)
+    // {
+    //     // $user = User::find($user->id);
+    //     // if ( $user->hasRole('admin') ) {
+    //     //     return redirect()->route('home');
+    //     // }
+    //     // else{
+    //     //     return redirect()->route('dailytask.index');
+    //     // }
+
     
-        // Arahkan ke halaman lain jika perlu
-        // return redirect('/dashboard');
-    }
+    //     // Arahkan ke halaman lain jika perlu
+    //     // return redirect('/dashboard');
+    // }
     
 }

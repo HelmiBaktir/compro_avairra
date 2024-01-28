@@ -74,7 +74,7 @@
                                     buttonsStyling: false,
                                     showConfirmButton: false
                                 }).then(function (result) {
-                                    window.location.href = "{{ route('dailytask.store') }}"
+                                    window.location.href = "{{ route('home') }}"
                                 });
 
                             } else {
@@ -98,7 +98,6 @@
             plugins : "advlist autolink link image lists charmap print preview code table",
             statusbar: false,
             elementpath: false,
-            height: 1000, 
         
         });
     </script>

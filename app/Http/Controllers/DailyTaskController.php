@@ -26,8 +26,16 @@ class DailyTaskController extends Controller
         
     }
 
-    public function tableDataAdmin(){
-        $dailyTask = DailyTask::all();
+    public function tableData(){
+        $user = Auth::user();
+        $user = User::find($user->id);
+
+        if($user->hasRole('staff')){
+            $dailyTask = DailyTask::where('user_id',$user->id)->get();
+        }
+        else{
+            $dailyTask = DailyTask::all();
+        }
         $counter = 1;
         if (request()->ajax())
         {
@@ -38,44 +46,23 @@ class DailyTaskController extends Controller
                 ->addColumn('User', function($item) {
                     return '<span  class="text-gray-800 fs-5 fw-bold mb-1">'.$item->user->name.'</span>';
                 })
-                ->addColumn('Report_Date', function($item) {
-                    return '<span  class="text-gray-800 fs-5 fw-bold mb-1">'.$item->report_date.'</span>';
+                ->addColumn('Report Date', function($item) {
+                    return '<span  class="text-gray-800 fs-5 fw-bold mb-1">'.date('d F y', strtotime($item->report_date)).'</span>';
                 })
-                ->addColumn('Morning_Task', function($item) {
-                    return '<span  class="text-gray-800 fs-5 fw-bold mb-1">'.$item->morning_task.'</span>';
-                })
-                ->addColumn('Afternoon_Progress', function($item) {
+                ->addColumn('Afternoon Progress', function($item) {
                     return '<span  class="text-gray-800 fs-5 fw-bold mb-1">'.$item->afternoon_progress.'</span>';
                 })
-                ->rawColumns(['No','User','Report_Date','Morning_Task','Afternoon_Progress'])
+                ->addColumn('Action', function($item) {
+                    $encryptedIdString = "'".strval(encrypt($item->id))."'";
+                    return '<a onclick="showPreview('.$encryptedIdString.')" class="btn btn-primary btn-sm" href="#">
+                                <i class="fas fa-info-circle"></i> Review
+                            </a>';
+                })
+                ->rawColumns(['No','User','Report Date','Afternoon Progress','Action'])
                 ->make(true);
         }
     }
 
-    // public function tableDataStaff()
-    // {
-    //     $dailyTask = DailyTask::select('report_date','morning_task', 'afternoon_progress')->get();
-    //     $counter = 1;
-
-    //     if (request()->ajax())
-    //     {
-    //         return Datatables::of($dailyTask)
-    //         ->addColumn('No', function () use (&$counter)  {
-    //             return $counter++;
-    //         })
-    //         ->addColumn('Report_Date', function($item) {
-    //             return '<span  class="text-gray-800 fs-5 fw-bold mb-1">'.$item->report_date.'</span>';
-    //         })
-    //         ->addColumn('Morning_Task', function($item) {
-    //             return '<span  class="text-gray-800 fs-5 fw-bold mb-1">'.$item->morning_task.'</span>';
-    //         })
-    //         ->addColumn('Afternoon_Progress', function($item) {
-    //             return '<span  class="text-gray-800 fs-5 fw-bold mb-1">'.$item->afternoon_progress.'</span>';
-    //         })
-    //         ->rawColumns(['No','Report_Date','Morning_Task','Afternoon_Progress'])
-    //         ->make(true);
-    //     }
-    // }
 
     /**
      * Show the form for creating a new resource.
@@ -98,7 +85,6 @@ class DailyTaskController extends Controller
     {
         try {
             $validator = Validator::make($request->all(), [
-                'user_id' => 'required|exists:users,id',
                 'report_date' => 'required|date',
                 'morning_task' => 'required',
                 'afternoon_progress' => 'required',
@@ -113,8 +99,9 @@ class DailyTaskController extends Controller
             }
     
             // Buat DailyTask baru
+            $user = Auth::user();
             $dailyTask = new DailyTask();
-            $dailyTask->user_id = $request->user_id;
+            $dailyTask->user_id = $user->id;
             $dailyTask->report_date = $request->report_date;
             $dailyTask->morning_task = $request->morning_task;
             $dailyTask->afternoon_progress = $request->afternoon_progress;
@@ -141,7 +128,13 @@ class DailyTaskController extends Controller
      */
     public function show($id)
     {
-        //
+        try {
+            $id = decrypt($id);
+            $dailyTask = DailyTask::find($id);
+            return response()->json(array('status' => 'success','msg' =>  view('admin.page.dailytask.modal.preview',compact('dailyTask'))->render()), 200);
+        } catch (\Throwable $e) {
+            return response()->json(array('status' => 'error','msg' => 'Failed Show Preview','err'=>$e->getMessage()), 200);
+        }
     }
 
     /**

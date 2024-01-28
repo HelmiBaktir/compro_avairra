@@ -4,17 +4,17 @@
             <div class="left-column">
                 <ul class="info clearfix">
                     <li><i class="icon-1"></i>Sun-Fri  08:00AM-05:00PM</li>
-                    <li><i class="icon-2"></i>Jln. Parang Kusuma No. 9i, Surabaya</li>
-                    <li><i class="icon-3"></i><a href="mailto:alibaraja@avairra.co.id">alibaraja@avairra.co.id</a></li>
+                    <li><i class="icon-2"></i>{{ $address }}</li>
+                    <li><i class="icon-3"></i><a href="mailto:alibaraja@avairra.co.id">{{ $company->email }}</a></li>
                 </ul>
             </div>
             <div class="right-column">
                 <ul class="social-links clearfix">
                     <li><p>Follow Us:</p></li>
-                    <li><a href="index.html"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="index.html"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="index.html"><i class="fab fa-linkedin-in"></i></a></li>
-                    <li><a href="index.html"><i class="fab fa-pinterest-p"></i></a></li>
+                    <li><a href="{{ count($sosial_media->where('platform','Facebook')) > 0 ? $sosial_media->where('platform','Facebook')[0]->link : '!#' }}"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="{{ count($sosial_media->where('platform','Twitter')) > 0 ? $sosial_media->where('platform','Twitter')[0]->link : '!#' }}"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="{{ count($sosial_media->where('platform','Linkedin')) > 0 ? $sosial_media->where('platform','Likendin')[0]->link : '!#' }}l"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="{{ count($sosial_media->where('platform','Pinterest')) > 0 ? $sosial_media->where('platform','Pinterst')[0]->link : '!#' }}"><i class="fab fa-pinterest-p"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -35,7 +35,7 @@
                         <ul class="navigation clearfix">
                             <li><a href="{{ route('landing.home') }}">Home</a></li>
                             <li><a href="{{ route('landing.aboutUs') }}">About</a></li> 
-                            <li><a href="{{ route('landing.product') }}">Product</a></li> 
+                            <li><a href="{{ route('landing.products') }}">Product</a></li> 
                             <li><a href="{{ route('landing.contact') }}">Contact</a></li> 
                         </ul>
                     </div>
@@ -80,17 +80,18 @@
             <h4>Contact Info</h4>
             <ul>
                 <li><i class="icon-1"></i>Sun-Fri  08:00AM-05:00PM</li>
-                <li><i class="icon-2"></i>Jln. Parang Kusuma No. 9i, Surabaya</li>
-                <li><i class="icon-3"></i><a href="mailto:alibaraja@avairra.co.id">alibaraja@avairra.co.id</a></li>
+                <li><i class="icon-2"></i>{{ $address }}</li>
+                <li><i class="icon-3"></i><a href="mailto:{{ $company->email }}">{{ $company->email }}</a></li>
             </ul>
         </div>
         <div class="social-links">
             <ul class="clearfix">
-                <li><a href="index.html"><span class="fab fa-twitter"></span></a></li>
-                <li><a href="index.html"><span class="fab fa-facebook-square"></span></a></li>
-                <li><a href="index.html"><span class="fab fa-pinterest-p"></span></a></li>
-                <li><a href="index.html"><span class="fab fa-instagram"></span></a></li>
-                <li><a href="index.html"><span class="fab fa-youtube"></span></a></li>
+                
+                <li><a href="{{ count($sosial_media->where('platform','Twitter')) > 0 ? $sosial_media->where('platform','Twitter')[0]->link : '!#' }}"><span class="fab fa-twitter"></span></a></li>
+                <li><a href="{{ count($sosial_media->where('platform','Facebook')) > 0 ? $sosial_media->where('platform','Facebook')[0]->link : '!#' }}"><span class="fab fa-facebook-square"></span></a></li>
+                <li><a href="{{ count($sosial_media->where('platform','Pinterest')) > 0 ? $sosial_media->where('platform','Pinterest')[0]->link : '!#' }}"><span class="fab fa-pinterest-p"></span></a></li>
+                <li><a href="{{ count($sosial_media->where('platform','Instagram')) > 0 ? $sosial_media->where('platform','Instagram')[0]->link : '!#' }}"><span class="fab fa-instagram"></span></a></li>
+                <li><a href="{{ count($sosial_media->where('platform','Youtube')) > 0 ? $sosial_media->where('platform','Youtube')[0]->link : '!#' }}"><span class="fab fa-youtube"></span></a></li>
             </ul>
         </div>
     </nav>

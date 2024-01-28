@@ -29,12 +29,7 @@ class HomeController extends Controller
     public function index()
     {
         try {
-            if(Auth::user()->role == 'admin'){
-                return view('admin.page.home.index');
-            }
-            else{
-                return view('admin.page.dailytask.index');
-            }
+            return view('admin.page.home.index');
         } catch (\Throwable $th) {
             dd($th->getMessage());
         }
