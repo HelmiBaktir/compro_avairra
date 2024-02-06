@@ -28,7 +28,7 @@
                             <span class="menu-title">Dashboard</span>
                         </a>
                     </div>
-                @if (auth()->user()->hasRole('admin'))     
+                @if (Auth::user()->getRoleNames()->first()  == 'admin')     
                     <div class="menu-item">
                         <a class="menu-link {{ request()->routeIs('products.index') ? 'active' : '' }}" href="{{ route('products.index') }}">
                             <span class="menu-icon">

@@ -117,7 +117,7 @@
             confirmButtonText: "Save",
         }).then((result) => {
             if (result.isConfirmed) {
-                tinyMCE.triggerSave();
+               
                 let act = '{{ route("products.store") }}'
                 let form_data = new FormData(document.querySelector("#addProductForm"));
                 form_data.append('_token', '{{ csrf_token() }}')

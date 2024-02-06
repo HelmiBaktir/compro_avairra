@@ -37,6 +37,7 @@ Route::middleware(['auth'])->group(function () {
          // Daily Task
         Route::resource('dailytask', DailyTaskController::class);
         Route::get('dailytasks-table', [DailyTaskController::class, 'tableData'])->name('dailytasks.table');
+
         // Category
         Route::resource('categories', CategoryController::class);
         Route::get('categories-table', [CategoryController::class, 'tableDataAdmin'])->name('categories.table.admin');
@@ -56,8 +57,7 @@ Route::middleware(['auth'])->group(function () {
         // Banner 
         Route::resource('banner-slider', BannerController::class);
         Route::get('banner-table', [BannerController::class, 'tableDataAdmin'])->name('banner.table.admin');
-
-       
+     
         // Route::get('/dailytasks/create', [DailyTaskController::class, 'create'])->name('dailytask.create');
         // Route::get('/dailytasks/store', [DailyTaskController::class, 'store'])->name('dailytask.store');
         // Route::get('/dailytasks/index', [DailyTaskController::class, 'index'])->name('dailytask.index');

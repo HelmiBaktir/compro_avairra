@@ -333,23 +333,25 @@
             <h2 class="d_block fs_40 lh_50 fw_bold">Check This Out! <br />Avairra Product</h2>
         </div>
         <div class="row clearfix">
-            <div class="col-lg-4 col-md-6 col-sm-12 news-block">
-                <div class="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
-                    <div class="inner-box p_relative d_block">
-                        <figure class="image-box"><a href="blog-details.html"><img src="{{ asset('easton/images/news/news-1.jpg')}}" alt=""></a></figure>
-                        <div class="lower-content p_relative d_block">
-                            <h3><a href="blog-details.html">The Importance Of The Air Quality.</a></h3>
-                            <ul class="post-info clearfix">
-                                <li><i class="icon-42"></i>10 Oct, 2021</li>
-                                <li><i class="icon-43"></i><a href="blog-details.html">Ashley Bronks</a></li>
-                            </ul>
-                            <p>Lorem ipsum dolor sit amet consecte adipisicing sed eiusmod tempor incid idunt labore dolore.</p>
-                            <div class="link"><a href="blog-details.html">Read more<i class="icon-7"></i></a></div>
+            @foreach($products  as $product)
+                <div class="col-lg-4 col-md-6 col-sm-12 news-block">
+                    <div class="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                        <div class="inner-box p_relative d_block">
+                            <figure class="image-box"><a href="{{ route('landing.product.detail',['product'=>encrypt($product->id)]) }}"><img src="{{ asset($product->image_path)}}" alt=""></a></figure>
+                            <div class="lower-content p_relative d_block">
+                                <h3><a href="{{ route('landing.product.detail',['product'=>encrypt($product->id)]) }}">{{ $product->name }}</a></h3>
+                                <!-- <ul class="post-info clearfix">
+                                    <li><i class="icon-42"></i>10 Oct, 2021</li>
+                                    <li><i class="icon-43"></i><a href="blog-details.html">Ashley Bronks</a></li>
+                                </ul> -->
+                                <p class="h-25px overflow: hidden;">{!! Str::limit($product->desc, 100) !!}</p>
+                                <div class="link"><a href="{{ route('landing.product.detail',['product'=>encrypt($product->id)]) }}">Read more<i class="icon-7"></i></a></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12 news-block">
+            @endforeach
+            <!-- <div class="col-lg-4 col-md-6 col-sm-12 news-block">
                 <div class="news-block-one wow fadeInUp animated" data-wow-delay="300ms" data-wow-duration="1500ms">
                     <div class="inner-box p_relative d_block">
                         <figure class="image-box"><a href="blog-details.html"><img src="{{ asset('easton/images/news/news-2.jpg')}}" alt=""></a></figure>
@@ -380,7 +382,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>

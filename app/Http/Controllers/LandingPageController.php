@@ -12,7 +12,8 @@ class LandingPageController extends Controller
     public function home()
     {
         $banner = Banner::where('posision', 'home')->get();
-        return view('frontend.page.home.index',compact('banner'));
+        $products = Product::take(3)->get();
+        return view('frontend.page.home.index',compact('banner','products'));
     }
 
     public function product()

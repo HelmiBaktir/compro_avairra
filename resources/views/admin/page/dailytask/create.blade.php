@@ -25,7 +25,7 @@
 
                 <div class="form-group mb-2">
                     <label class="required form-label"><b>Afternoon Progress</b></label>
-                    <textarea class="form-control" name="afternoon_progress" id="tiny_desc">
+                    <textarea class="form-control" name="afternoon_progress" id="tiny_desc_aff">
         
                     </textarea>
                 </div>
@@ -46,6 +46,16 @@
 @endsection
 
 @section('scripts')
+<script>
+        tinymce.init({ 
+            selector: "#tiny_desc,#tiny_desc_aff",
+            toolbar: ["styleselect bold italic blockquote link bullist numlist",],
+            plugins : "advlist autolink link image lists charmap print preview code table",
+            statusbar: false,
+            elementpath: false,
+        
+        });
+    </script>
     <script>
         $('#kt_btn_create_dailytask').click(function (e) {
             e.preventDefault();
@@ -56,6 +66,7 @@
                 confirmButtonText: "Simpan",
             }).then((result) => {
                 if (result.isConfirmed) {
+                    tinyMCE.triggerSave();
                     let act = '{{ route("dailytask.store") }}';
                     let form_data = new FormData(document.querySelector("#addDailyTaskForm"));
                     form_data.append('_token', '{{ csrf_token() }}');
@@ -91,14 +102,5 @@
             });
         })
     </script>
-    <script>
-        tinymce.init({ 
-            selector: "#tiny_desc",
-            toolbar: ["styleselect bold italic blockquote link bullist numlist",],
-            plugins : "advlist autolink link image lists charmap print preview code table",
-            statusbar: false,
-            elementpath: false,
-        
-        });
-    </script>
+   
 @endsection

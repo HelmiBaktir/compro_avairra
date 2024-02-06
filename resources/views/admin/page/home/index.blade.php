@@ -11,9 +11,11 @@
         <div class="card-title">
             <h2>Halo, {{Auth::user()->name}} !</h2>
         </div>
-        <div class="card-toolbar">
-            <a href="{{ route('dailytask.create') }}" id="btnAddDailyTask" class="btn btn-success">Add DailyTask</a>
-        </div>
+       @if(Auth::user()->getRoleNames()->first()  != 'admin')
+       <div class="card-toolbar">
+           <a href="{{ route('dailytask.create') }}" id="btnAddDailyTask" class="btn btn-success">Add DailyTask</a>
+       </div>
+       @endif
 
     </div>
     <div class="card-body pt-0">
