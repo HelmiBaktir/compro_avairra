@@ -23,6 +23,7 @@
 @endsection
 
 @section('scripts')
+
 <script>
     $(document).ready(function() {
         var datatable = $('#kt_daily_table').DataTable({

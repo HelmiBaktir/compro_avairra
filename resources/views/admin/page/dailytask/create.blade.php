@@ -23,12 +23,12 @@
                     </textarea>
                 </div>
 
-                <div class="form-group mb-2">
+                {{-- <div class="form-group mb-2">
                     <label class="required form-label"><b>Afternoon Progress</b></label>
                     <textarea class="form-control" name="afternoon_progress" id="tiny_desc_aff">
         
                     </textarea>
-                </div>
+                </div> --}}
                 
             </div>
             <div class="card-footer">
