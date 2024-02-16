@@ -30,7 +30,7 @@ class DailyTaskController extends Controller
     public function tableData(){
         $user = Auth::user();
         $user = User::find($user->id);
-        if($user->hasRole('staff')){
+        if($user->getRoleNames()->first()  == 'staff'){
             $dailyTask = DailyTask::where('user_id',$user->id)->get();
         }
         else{
