@@ -26,11 +26,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // $company = Company::take(1)->get()[0];
-        // $address = explode('//', $company->address)[0];
-        // $phone_number = explode('//', $company->phone_number)[0];
-        // // dd($address);
-        // $sosial_media = SosialMedia::where('company_id', $company->id)->get();
-        // View::share(['sosial_media'=> $sosial_media,'company'=>$company,'phone_number'=>$phone_number,'address'=>$address]);
+        $company = Company::take(1)->get()[0];
+        $address = explode('//', $company->address)[0];
+        $phone_number = explode('//', $company->phone_number)[0];
+        // dd($address);
+        $sosial_media = SosialMedia::where('company_id', $company->id)->get();
+        View::share(['sosial_media'=> $sosial_media,'company'=>$company,'phone_number'=>$phone_number,'address'=>$address]);
     }
 }
