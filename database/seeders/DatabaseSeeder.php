@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Database\Seeders\RoleSeeder;
 use Database\Seeders\UserSeeder;
+use Database\Seeders\BannerSeeder;
 use Database\Seeders\CompanySeeder;
 use Database\Seeders\PermissionSeeder;
 
@@ -23,6 +24,7 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             UserSeeder::class,
             CompanySeeder::class,
+            BannerSeeder::class
         ]);
     }
 }
