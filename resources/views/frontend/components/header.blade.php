@@ -4,8 +4,11 @@
             <div class="left-column">
                 <ul class="info clearfix">
                     <li><i class="icon-1"></i>Sun-Fri  08:00AM-05:00PM</li>
+                    @if (isset($address))
                     <li><i class="icon-2"></i>{{ $address }}</li>
                     <li><i class="icon-3"></i><a href="mailto:alibaraja@avairra.co.id">{{ $company->email }}</a></li>
+                        
+                    @endif
                 </ul>
             </div>
             <div class="right-column">
@@ -80,8 +83,10 @@
             <h4>Contact Info</h4>
             <ul>
                 <li><i class="icon-1"></i>Sun-Fri  08:00AM-05:00PM</li>
-                <li><i class="icon-2"></i>{{ $address }}</li>
-                <li><i class="icon-3"></i><a href="mailto:{{ $company->email }}">{{ $company->email }}</a></li>
+                @if (isset($address))
+                    <li><i class="icon-2"></i>{{ $address }}</li>
+                    <li><i class="icon-3"></i><a href="mailto:{{ $company->email }}">{{ $company->email }}</a></li>
+                @endif
             </ul>
         </div>
         <div class="social-links">

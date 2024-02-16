@@ -33,11 +33,14 @@
                             <h3>Contacts</h3>
                         </div>
                         <div class="widget-content">
+                            @if (isset($address))
                             <ul class="info-list clearfix">
                                 <li>{{ $address }}</li>
                                 <li><a href="tel:{{ $phone_number }}">{{ $phone_number }}</a></li>
                                 <li><a href="mailto:{{ $company->email }}">{{ $company->email }}</a></li>
                             </ul>
+                                
+                            @endif
                         </div>
                     </div>
                 </div>
