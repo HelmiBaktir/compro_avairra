@@ -188,7 +188,7 @@ class DailyTaskController extends Controller
             $validator = Validator::make($request->all(), [
                 'afternoon_progress_update' => 'required',
             ]);
-    
+            // har tes
             if ($validator->fails()) {
                 return response()->json([
                     'status' => 'error',
