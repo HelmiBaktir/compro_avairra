@@ -27,14 +27,31 @@ class DailyTaskController extends Controller
         
     }
 
-    public function tableData(){
+    public function tableData(Request $request){
+
+        $filter  = $request->input('filter');
         $user = Auth::user();
         $user = User::find($user->id);
-        if($user->getRoleNames()->first()  == 'staff'){
-            $dailyTask = DailyTask::where('user_id',$user->id)->get();
+        if ($filter == 'all') {
+            if($user->getRoleNames()->first()  == 'staff'){
+                $dailyTask = DailyTask::where('user_id',$user->id)->get();
+            }
+            else{
+                $dailyTask = DailyTask::all();
+            }
         }
         else{
-            $dailyTask = DailyTask::all();
+            $dateRange = $filter;
+            list($startDate, $endDate) = explode(' - ', $dateRange);
+            $startDate = Carbon::createFromFormat('m/d/Y', $startDate)->format('Y-m-d');
+            $endDate = Carbon::createFromFormat('m/d/Y', $endDate)->format('Y-m-d');
+            if($user->getRoleNames()->first()  == 'staff'){
+                $dailyTask = DailyTask::whereBetween('report_date', [$startDate, $endDate])->where('user_id',$user->id)
+                ->get();
+            }
+            else{
+                $dailyTask = DailyTask::whereBetween('report_date', [$startDate, $endDate])->get();
+            }
         }
         $counter = 1;
         if (request()->ajax())

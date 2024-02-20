@@ -10,13 +10,15 @@
     <div class="card-header align-items-center py-5 gap-2 gap-md-5">
         <div class="card-title">
             <h2>Halo, {{Auth::user()->name}} !</h2>
+     
         </div>
-       @if(Auth::user()->getRoleNames()->first()  != 'admin')
-       <div class="card-toolbar">
-           {{-- <a href="{{ route('dailytask.create') }}" id="btnAddDailyTask" class="btn btn-success">Add DailyTask</a> --}}
-           <button id="btnAddDailyTask" class="btn btn-success">Add DailyTask</a>
-       </div>
-       @endif
+        <div class="card-toolbar">
+            <input class="form-control form-control-solid w-auto me-3"  placeholder="Pick date rage" id="kt_daterangepicker_2"/>
+            {{-- <a href="{{ route('dailytask.create') }}" id="btnAddDailyTask" class="btn btn-success">Add DailyTask</a> --}}
+            @if(Auth::user()->getRoleNames()->first()  != 'admin')
+                <button id="btnAddDailyTask" class="btn btn-success w-auto">Add DailyTask</a>
+            @endif
+        </div>
 
     </div>
     <div class="card-body pt-0">
@@ -30,6 +32,11 @@
 @endsection
 
 @section('scripts')
+
+<script>
+    $("#kt_daterangepicker_2").daterangepicker();
+</script>
+
 <script>
     $('#btnAddDailyTask').on('click',function (e){
         $.ajax({
@@ -82,10 +89,8 @@
     }
 </script>
 <script>
-   
-
-    $(document).ready(function() {
-        var datatable = $('#kt_daily_table').DataTable({
+   function datatable(type){
+    var datatable = $('#kt_daily_table').DataTable({
             "initComplete": function() {
                 $('#kt_daily_table thead th').addClass('bg-light-secondary fw-bold text-center justify-content-center align-content-center');
             },
@@ -95,7 +100,7 @@
             }],
             processing: true,
             serverSide: true,
-            ajax: "{{ route('dailytasks.table') }}",
+            ajax: "{{ route('dailytasks.table') }}"+'?filter='+type,
             columns: [
                 {
                     data: 'No',
@@ -148,10 +153,18 @@
               
             ]
         });
-    
-     
-    });
-    </script>
+   }
+
+   datatable('all')
+</script>
+<script>
+    $('#kt_daterangepicker_2').on('change', function(e){
+        $('#kt_daily_table').DataTable().clear().destroy();
+        datatable(($(this).val()))
+    })
+</script>
+
+
     
     <script>
 
