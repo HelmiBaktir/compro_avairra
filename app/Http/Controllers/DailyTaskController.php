@@ -80,6 +80,8 @@ class DailyTaskController extends Controller
                 })
                 ->addColumn('Action', function($item) {
                     $encryptedIdString = "'".strval(encrypt($item->id))."'";
+                    $user = Auth::user();
+                    $user = User::find($user->id);
                     $update = '';
                     if(!$item->afternoon_progress && $user->getRoleNames()->first()  == 'staff'){
                         $update ='<a onclick="showModalUpdate('.$encryptedIdString.')" class="btn btn-info btn-sm me-3" href="#">
