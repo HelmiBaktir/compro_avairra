@@ -2,6 +2,23 @@
 @section('title', 'Product -')
 @section('toolbar')
 
+@section('styles')
+{{-- <style>
+    .single-item .icon-box {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        width: 80px;
+        height: 80px;
+        line-height: 80px;
+        font-size: 40px;
+        color: #fff;
+        text-align: center;
+        border-radius: 50%;
+    }
+</style> --}}
+@endsection
+
 @include('frontend/components/toolbar',['title' => 'Product','subtitle' => 'Details', 'backgroundImage' => asset('background/product_detail.jpg')])
 
 @endsection
@@ -28,19 +45,42 @@
                             </ul>
                         </div>
                     </div>
+                    <div class="product-discription p_relative d_block mb_100">
+                        <div class="content-box">
+                            <h5 class="">Guarantee Product</h5>
+                            <hr>
+                            <div>
+                                <p>Each product we offer comes with a comprehensive one-year warranty, giving you a guarantee of safety and satisfaction. We are ready to provide a responsive and comprehensive after-sales service throughout the warranties. With our one year guarantee, you can be sure that your investment is well protected.</p>
+                                <p>Do not doubt the reliability of our warranty, as we are committed to providing comprehensive protection and the best quality of service as long as the guarantee remains valid. </p>
+                                <div class="content_block_one">
+                                    <div class="content-box p_relative d_block ml_30">
+                                     
+                                        <div class="inner p_relative d_block mb_40">
+                                            <div class="row clearfix">
+                                                <div class="col-lg-6 col-md-6 col-sm-12 single-column">
+                                                    <div class="single-item">
+                                                        <div class="icon-box"><i class="icon-11"></i></div>
+                                                        <h4>Trusted Product</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-12 single-column">
+                                                    <div class="single-item">
+                                                        <div class="icon-box"><i class="icon-10"></i></div>
+                                                        <h4>Guaranteed All Products</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="product-discription p_relative d_block mb_100">
-            <div class="content-box">
-                <h5 class="">Description</h5>
-                <hr>
-                <div>
-                    {!! $product->desc !!}
-                </div>
-            </div>
-
-        </div>
+      
     </div>
 </section>
 @endsection

@@ -20,7 +20,7 @@
 <link href="{{ asset('easton/css/nice-select.css')}}" rel="stylesheet">
 <link href="{{ asset('easton/css/style.css')}}" rel="stylesheet">
 <link href="{{ asset('easton/css/responsive.css')}}" rel="stylesheet">
-
+@yield('styles')
 </head>
 
 
