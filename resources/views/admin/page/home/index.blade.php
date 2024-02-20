@@ -142,14 +142,12 @@
                     name: 'Afternoon Progress Datetime',
                     title: 'Afternoon Progress Datetime',
                 },
-                @if (Auth::user()->getRoleNames()->first() != 'admin')   
                 {
                     data: 'Action',
                     name: 'Action',
                     title: 'Action',
                     className: 'text-nowrap'
                 },
-                @endif
               
             ]
         });
