@@ -103,7 +103,7 @@
                     title: 'No',
                     className: 'text-nowrap'
                 },
-                @if (auth()->user()->hasRole('admin'))   
+                @if ($user->getRoleNames()->first() == 'admin')   
                 {
                     data: 'User',
                     name: 'User',
@@ -137,12 +137,14 @@
                     name: 'Afternoon Progress Datetime',
                     title: 'Afternoon Progress Datetime',
                 },
+                @if ($user->getRoleNames()->first() != 'admin')   
                 {
                     data: 'Action',
                     name: 'Action',
                     title: 'Action',
                     className: 'text-nowrap'
                 },
+                @endif
               
             ]
         });
