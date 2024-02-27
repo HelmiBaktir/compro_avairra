@@ -6,7 +6,7 @@
                     <li><i class="icon-1"></i>Sun-Fri  08:00AM-05:00PM</li>
                     @if (isset($address))
                     <li><i class="icon-2"></i>{{ $address }}</li>
-                    <li><i class="icon-3"></i><a href="mailto:alibaraja@avairra.co.id">{{ $company->email }}</a></li>
+                    <li><i class="icon-3"></i><a href="mailto:{{ $company->email }}">{{ $company->email }}</a></li>
                         
                     @endif
                 </ul>

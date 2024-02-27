@@ -29,11 +29,13 @@ $pin = asset('easton/images/icons/map-marker.png');
                 <div class="contact-info mr_70">
                     <h3> How can I assist you today?</h3>
                     <p>We're here to help! Feel free to reach out anytime during business hours. We strive to answer all inquiries within 24 hours on weekdays.</p>
+                    @if (isset($address))
                     <ul class="info-list clearfix">
-                        <li>Jalan Parangkusumo no 9, Krembangan, Surabaya</li>
-                        <li><a href="mailto:infomain@gmail.com">avairra@gmail.com</a></li>
-                        <li><a href="tel:123045615523">0817-0336-7870</a></li>
+                        <li>{{ $address }}</li>
+                        <li><a href="mailto:{{ $company->email }}">{{ $company->email }}</a></li>
+                        <li><a href="tel:{{ $phone_number }}">{{ $phone_number }}</a></li>
                     </ul>
+                    @endif
                 </div>
             </div>
             <div class="col-lg-8 col-md-12 col-sm-12 form-column">

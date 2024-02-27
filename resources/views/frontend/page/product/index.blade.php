@@ -50,30 +50,6 @@
     </div>
 </section>
 
-
-<section class="subscribe-section p_relative bg-color-4">
-    <div class="auto-container">
-        <div class="inner-container">
-            <div class="row align-items-center clearfix">
-                <div class="col-lg-6 col-md-12 col-sm-12 text-column">
-                    <div class="text p_relative d_block">
-                        <h2>Subscribe to Our Newsletter</h2>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12 col-sm-12 form-column">
-                    <div class="form-inner p_relative d_block">
-                        <form action="index.html" method="post">
-                            <div class="form-group">
-                                <input type="email" name="email" placeholder="Your email address" required="">
-                                <button type="submit">Subscribe Now<i class="icon-7"></i></button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 @endsection
 
 @section('script')

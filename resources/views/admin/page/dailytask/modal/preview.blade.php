@@ -18,9 +18,13 @@
                         </div>
                     </div>
                 </div>
-                <hr>
+                <br>
                 <div class="fv-row mt-3">
+                    <h4>Morning Task (Created at: {!! $dailyTask->morning_task_time !!} )</h4>
                     {!! $dailyTask->morning_task !!}
+                    <hr>
+                    <h4>Afternoon Progress (Update at: {!! $dailyTask->afternoon_progress_time !!} )</h4>
+                    {!! $dailyTask->afternoon_progress !!}
                 </div>
             </div>
             <div class="modal-footer">

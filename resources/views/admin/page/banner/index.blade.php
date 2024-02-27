@@ -133,7 +133,7 @@
     }
 </script>
 <script>
-    function deleteSosialMedia(data){
+    function deleteBanner(data){
         Swal.fire({
             title: 'Are you sure?',
             text: "Delete Banner Data",

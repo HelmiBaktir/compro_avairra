@@ -50,7 +50,7 @@
                             <h2 class="d_block fs_40 lh_50 fw_bold">Security and Efficient Energy Services</h2>
                         </div>
                         <div class="text p_relative d_block mb_30">
-                            <p>PT. Avairra Indo Karya was founded in 2014 by two highly competent people in its field, namely Mr. Abdullah Baraja (Chief Commissioner) and Mr. Ali Baraja(Chief Director) with the aim of providing the latest solutions on security and energy & efficiency measurement solutions to protect income. We are trusted as the sole agent of several international companies to provide the best solution. Moreover, we have ISO 9000 certification which we have international standard quality assurance.</p>
+                            <p>PT. Avairra Indo Karya was founded in 2014 by two highly competent people in its field, namely Mr. Abdullah Baraja (Chief Commissioner) and Mr. Ali Baraja(Chief Director) with the aim of providing the latest solutions on security and energy & efficiency measurement solutions to protect Asset. We are trusted as the sole agent of several international companies to provide the best solution. Moreover, we have ISO 9000 certification which we have international standard quality assurance.</p>
                         </div>
                         <div class="inner p_relative d_block mb_40">
                             <div class="row clearfix">
@@ -94,7 +94,7 @@
         <div class="three-item-carousel owl-carousel owl-theme owl-nav-none">
             <div class="service-block-two">
                 <div class="inner-box">
-                    <figure class="image-box"><img src="{{ asset('easton/images/service/service-9.jpg') }}" alt=""></figure>
+                    <figure class="image-box"><img src="{{ asset('background/our_service_1.jpg') }}" alt=""></figure>
                     <div class="lower-content">
                         <div class="icon-box">
                             <div class="icon-shape"
@@ -108,7 +108,7 @@
             </div>
             <div class="service-block-two">
                 <div class="inner-box">
-                    <figure class="image-box"><img src="{{ asset('easton/images/service/service-9.jpg') }}" alt=""></figure>
+                    <figure class="image-box"><img src="{{ asset('background/our_service_2.jpg') }}" alt=""></figure>
                     <div class="lower-content">
                         <div class="icon-box">
                             <div class="icon-shape"
@@ -122,7 +122,7 @@
             </div>
             <div class="service-block-two">
                 <div class="inner-box">
-                    <figure class="image-box"><img src="{{ asset('easton/images/service/service-9.jpg') }}" alt=""></figure>
+                    <figure class="image-box"><img src="{{ asset('background/our_service_3.jpg') }}" alt=""></figure>
                     <div class="lower-content">
                         <div class="icon-box">
                             <div class="icon-shape"
@@ -136,7 +136,7 @@
             </div>
             <div class="service-block-two">
                 <div class="inner-box">
-                    <figure class="image-box"><img src="{{ asset('easton/images/service/service-9.jpg') }}" alt=""></figure>
+                    <figure class="image-box"><img src="{{ asset('background/our_service_4.jpg') }}" alt=""></figure>
                     <div class="lower-content">
                         <div class="icon-box">
                             <div class="icon-shape"
@@ -150,7 +150,7 @@
             </div>
             <div class="service-block-two">
                 <div class="inner-box">
-                    <figure class="image-box"><img src="{{ asset('easton/images/service/service-9.jpg') }}" alt=""></figure>
+                    <figure class="image-box"><img src="{{ asset('background/our_service_5.jpg') }}" alt=""></figure>
                     <div class="lower-content">
                         <div class="icon-box">
                             <div class="icon-shape"
@@ -164,7 +164,7 @@
             </div>
             <div class="service-block-two">
                 <div class="inner-box">
-                    <figure class="image-box"><img src="{{ asset('easton/images/service/service-9.jpg') }}" alt=""></figure>
+                    <figure class="image-box"><img src="{{ asset('background/our_service_6.jpg') }}" alt=""></figure>
                     <div class="lower-content">
                         <div class="icon-box">
                             <div class="icon-shape"
@@ -357,83 +357,5 @@
     </div>
 </section>
 <!-- how its work section end -->
-
-
-<!-- team section start -->
-<section class="team-style-two p_relative">
-    <div class="auto-container">
-        <div class="sec-title p_relative mb_45 centred">
-            <h5 class="d_block fs_17 lh_25 fw_medium mb_9">Our Staff</h5>
-            <h2 class="d_block fs_40 lh_50 fw_bold">Our Professional <br />Staff</h2>
-        </div>
-        <div class="three-item-carousel owl-carousel owl-theme owl-nav-none">
-            <div class="team-block-two">
-                <div class="inner-box">
-                    <div class="image-box">
-                        <figure class="image"><img src="{{ asset('easton/images/team/team-4.jpg') }}" alt=""></figure>
-                        <ul class="social-links clearfix">
-                            <li><a href="index-3.html"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="index-3.html"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="index-3.html"><i class="fab fa-linkedin-in"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="content-box">
-                        <h3><a href="index-3.html">Abdullah Baraja</a></h3>
-                        <span class="designation">Chief Commissioner</span>
-                    </div>
-                </div>
-            </div>
-            <div class="team-block-two">
-                <div class="inner-box">
-                    <div class="image-box">
-                        <figure class="image"><img src="{{ asset('easton/images/team/team-5.jpg') }}" alt=""></figure>
-                        <ul class="social-links clearfix">
-                            <li><a href="index-3.html"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="index-3.html"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="index-3.html"><i class="fab fa-linkedin-in"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="content-box">
-                        <h3><a href="index-3.html">Ali Baraja</a></h3>
-                        <span class="designation">President director</span>
-                    </div>
-                </div>
-            </div>
-            <div class="team-block-two">
-                <div class="inner-box">
-                    <div class="image-box">
-                        <figure class="image"><img src="{{ asset('easton/images/team/team-6.jpg') }}" alt=""></figure>
-                        <ul class="social-links clearfix">
-                            <li><a href="index-3.html"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="index-3.html"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="index-3.html"><i class="fab fa-linkedin-in"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="content-box">
-                        <h3><a href="index-3.html">Kamal Baktir</a></h3>
-                        <span class="designation">Electrician</span>
-                    </div>
-                </div>
-            </div>
-            <div class="team-block-two">
-                <div class="inner-box">
-                    <div class="image-box">
-                        <figure class="image"><img src="{{ asset('easton/images/team/team-4.jpg') }}" alt=""></figure>
-                        <ul class="social-links clearfix">
-                            <li><a href="index-3.html"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="index-3.html"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="index-3.html"><i class="fab fa-linkedin-in"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="content-box">
-                        <h3><a href="index-3.html">Adnan Baraja</a></h3>
-                        <span class="designation">Manager</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- team section end -->
 
 @endsection

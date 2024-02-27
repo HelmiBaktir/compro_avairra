@@ -15,7 +15,7 @@
             <div class="auto-container">
                 <div class="content-box p_relative d_block z_5">
                     <h2 class="p_relative d_block fs_60 lh_70 fw_bold mb_18">Best <span>Solution</span> for Your Company</h2>
-                    <p class="p_relative d_block fs_18">Best Choice to Provide Solutions the Latest on Security Solutions and Energy & Efficiency Measurements for Protect Income.</p>
+                    <p class="p_relative d_block fs_18">Best Choice to Provide Solutions the Latest on Security Solutions and Energy & Efficiency Measurements for Protect Asset.</p>
                 </div>
             </div>
         </div>
@@ -25,7 +25,7 @@
             <div class="auto-container">
                 <div class="content-box p_relative d_block z_5">
                     <h2 class="p_relative d_block fs_60 lh_70 fw_bold mb_18">Best <span>Solution</span> for Your Company</h2>
-                    <p class="p_relative d_block fs_18">Best Choice to Provide Solutions the Latest on Security Solutions and Energy & Efficiency Measurements for Protect Income.</p>
+                    <p class="p_relative d_block fs_18">Best Choice to Provide Solutions the Latest on Security Solutions and Energy & Efficiency Measurements for Protect Asset.</p>
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@
             <div class="auto-container">
                 <div class="content-box p_relative d_block z_5">
                     <h2 class="p_relative d_block fs_60 lh_70 fw_bold mb_18">Best <span>Solution</span> for Your Company</h2>
-                    <p class="p_relative d_block fs_18">Best Choice to Provide Solutions the Latest on Security Solutions and Energy & Efficiency Measurements for Protect Income.</p>
+                    <p class="p_relative d_block fs_18">Best Choice to Provide Solutions the Latest on Security Solutions and Energy & Efficiency Measurements for Protect Asset.</p>
                 </div>
             </div>
         </div> --}}
@@ -73,7 +73,7 @@
                             <h2 class="d_block fs_40 lh_50 fw_bold">Security and Efficient Energy Services</h2>
                         </div>
                         <div class="text p_relative d_block mb_30">
-                            <p>PT. Avairra Indo Karya was founded in 2014 by two highly competent people in its field, namely Mr. Abdullah Baraja (Chief Commissioner) and Mr. Ali Baraja(Chief Director) with the aim of providing the latest solutions on security and energy & efficiency measurement solutions to protect income. We are trusted as the sole agent of several international companies to provide the best solution. Moreover, we have ISO 9000 certification which we have international standard quality assurance.</p>
+                            <p>PT. Avairra Indo Karya was founded in 2014 by two highly competent people in its field, namely Mr. Abdullah Baraja (Chief Commissioner) and Mr. Ali Baraja(Chief Director) with the aim of providing the latest solutions on security and energy & efficiency measurement solutions to protect Asset. We are trusted as the sole agent of several international companies to provide the best solution. Moreover, we have ISO 9000 certification which we have international standard quality assurance.</p>
                         </div>
                         <div class="inner p_relative d_block mb_40">
                             <div class="row clearfix">
