@@ -5,7 +5,7 @@
                 <div class="fv-row">
                     <div class="d-flex align-content-between flex-wrap flex-grow-1 mt-n2 mt-lg-n1">
                         <div class="text-start d-flex flex-column flex-grow-1 my-lg-0 my-2 pe-3 py-lg-0">
-                            <h3 class="modal-title pt-2">Desc {{ $product->name }}</h3>
+                            <h3 class="modal-title pt-2">Description of {{ $product->name }}</h3>
                         </div>
                         <div>
                             <button type="button" class="btn btn-sm btn-icon btn-active-color-primary"
@@ -20,8 +20,22 @@
                 </div>
                 <hr>
                 <div class="fv-row mt-3">
+                    <img src="{{ asset($product->image_path) }}" alt="Product Image" style="width: 100%; height: 100%;">                
+                </div>
+                <div class="fv-row mt-3">
+                    <h5 class="modal-title pt-2">Nomor Product : {!! $product->nomor !!}</h5>
+                </div>
+                <div class="fv-row mt-3">
+                    <h5 class="modal-title pt-2">Product : {!! $product->name !!} [Series : {!! $product->series !!}]</h5> 
+                </div>
+                <div class="fv-row mt-3">
+                    <h5 class="modal-title pt-2">Category : {!! $product->category->name !!}</h5> 
+                </div>
+                <hr>
+                <div class="fv-row mt-3">
                     {!! $product->desc !!}
                 </div>
+                <hr>
             </div>
             <div class="modal-footer">
                 <button type="button" data-kt-modal-action-type="close" data-bs-dismiss="modal"

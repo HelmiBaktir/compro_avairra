@@ -28,6 +28,7 @@ Route::get('/products-data/{category}', [LandingPageController::class, 'dataProd
 Route::post('/products-search', [LandingPageController::class, 'searchProduct'])->name('landing.product.search');
 
 Route::get('/contact', [LandingPageController::class, 'contact'])->name('landing.contact');
+Route::post('/send-message', [LandingPageController::class, 'sendMessage'])->name('landing.send_message');
 Route::get('/about-us', [LandingPageController::class, 'aboutUs'])->name('landing.aboutUs');
 
 Auth::routes();

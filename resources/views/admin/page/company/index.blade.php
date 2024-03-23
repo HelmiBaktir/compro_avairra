@@ -79,6 +79,12 @@
                     className: 'text-nowrap'
                 },
                 {
+                    data: 'Register Code',
+                    name: 'Register Code',
+                    title: 'Register Code',
+                    className: 'px-5 text-nowrap'
+                },
+                {
                     data: 'Action',
                     name: 'Action',
                     title: 'Action',

@@ -337,13 +337,9 @@
                 <div class="col-lg-4 col-md-6 col-sm-12 news-block">
                     <div class="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
                         <div class="inner-box p_relative d_block">
-                            <figure class="image-box"><a href="{{ route('landing.product.detail',['product'=>encrypt($product->id)]) }}"><img src="{{ asset($product->image_path)}}" alt=""></a></figure>
+                            <figure class="image-box"><a href="{{ route('landing.product.detail',['product'=>encrypt($product->id)]) }}"><img src="{{ asset($product->image_path)}}" alt="" style="width: 300px; height: 300px;"></a></figure>
                             <div class="lower-content p_relative d_block">
                                 <h3><a href="{{ route('landing.product.detail',['product'=>encrypt($product->id)]) }}">{{ $product->name }}</a></h3>
-                                <!-- <ul class="post-info clearfix">
-                                    <li><i class="icon-42"></i>10 Oct, 2021</li>
-                                    <li><i class="icon-43"></i><a href="blog-details.html">Ashley Bronks</a></li>
-                                </ul> -->
                                 <p class="h-25px overflow: hidden;">{!! Str::limit($product->desc, 100) !!}</p>
                                 <div class="link"><a href="{{ route('landing.product.detail',['product'=>encrypt($product->id)]) }}">Read more<i class="icon-7"></i></a></div>
                             </div>
@@ -604,7 +600,9 @@
                         <div class="support-box p_relative d_block">
                             <div class="icon-box p_absolute l_0 t_0 w_70 h_70 lh_70 b_radius_50 fs_40"><i class="icon-37"></i></div>
                             <h5>For Emergency</h5>
-                            <h3><a href="https://wa.me/6282229372706?text=Halo%20Admin%2C%20Saya%20ingin%20mendapatkan%20informasi%20lebih%20lanjut">+62-822-2937-2706</a></h3>
+                                @if (isset($address))
+                                    <h3><a href="https://wa.me/+{{ $phone_number }}?text=Halo%20Admin%2C%20Saya%20ingin%20mendapatkan%20informasi%20lebih%20lanjut">+{{ $phone_number }}</a></h3>
+                                @endif
                         </div>
                     </div>
                 </div>

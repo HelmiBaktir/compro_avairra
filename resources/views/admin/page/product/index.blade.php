@@ -57,12 +57,6 @@ $(document).ready(function() {
                 className: 'px-5 text-nowrap'
             },
             {
-                data: 'Image',
-                name: 'Image',
-                title: 'Image',
-                className: 'text-nowrap'
-            },
-            {
                 data: 'Nomor',
                 name: 'Nomor',
                 title: 'Nomor',

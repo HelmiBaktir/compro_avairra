@@ -10,7 +10,7 @@
 	</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="shortcut icon" href="{{ asset('assets/icon/logo.png') }}" />
+	<link rel="shortcut icon" href="{{ asset('assets/icon/logo_website_1.png') }}" />
 	<link href="{{ asset('jeremia-assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
 	<link href="{{ asset('jeremia-assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
 	<link href="{{ asset('jeremia-assets/plugins/custom/datatables/datatables.bundle.css')}}" rel="stylesheet" type="text/css" />

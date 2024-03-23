@@ -14,7 +14,6 @@
         </div>
         <div class="card-toolbar">
             <input class="form-control form-control-solid w-auto me-3"  placeholder="Pick date rage" id="kt_daterangepicker_2"/>
-            {{-- <a href="{{ route('dailytask.create') }}" id="btnAddDailyTask" class="btn btn-success">Add DailyTask</a> --}}
             @if(Auth::user()->getRoleNames()->first()  != 'admin')
                 <button id="btnAddDailyTask" class="btn btn-success w-auto">Add DailyTask</a>
             @endif
@@ -60,6 +59,7 @@
         });
     })
 </script>
+
 <script>
     function showModalUpdate(data){
         let url = "{{ route('dailytask.edit', ':id') }}".replace(':id', data)
@@ -88,9 +88,42 @@
         });
     }
 </script>
+
+<script>
+    $(document).ready(function() {
+        $('#kt_daily_table_wrapper .dt-buttons .buttons-pdf')
+        .hide()
+        .after('<div id="pdfDownloadContainer" class="text-muted">Untuk mendownload data sebagai PDF, Mohon untuk memfilter tanggal terlebih dahulu.');
+    });
+</script>
+
 <script>
    function datatable(type){
-    var datatable = $('#kt_daily_table').DataTable({
+        var dateRange = $('#kt_daterangepicker_2').val();
+        var title = "Report Daily Task PT.Avairra Indo Karya (" + dateRange + ")";
+        var datatable = $('#kt_daily_table').DataTable({
+            dom: 'Bfrtip', // Menentukan elemen DOM yang akan digunakan oleh plugin Buttons
+            buttons: [
+                @if (Auth::user()->getRoleNames()->first() == 'admin')
+                {
+                    title: title,
+                    extend: 'pdfHtml5',
+                    text: 'Download PDF',
+                    className: 'btn-primary',
+                    exportOptions: {
+                        columns: [1,2,3,4,5,6]
+                    },
+                    customize: function (doc) {
+                        doc.content.push({
+                            text: 'Printed on: ' + new Date().toLocaleString(),
+                            alignment: 'right'
+                        });
+                        doc.content[1].table.widths = ['auto', '15%', 'auto', '15%', 'auto', '15%'];                    
+                    }        
+                }
+                @endif
+            ],
+
             "initComplete": function() {
                 $('#kt_daily_table thead th').addClass('bg-light-secondary fw-bold text-center justify-content-center align-content-center');
             },
@@ -155,43 +188,41 @@
 
    datatable('all')
 </script>
+
+
 <script>
     $('#kt_daterangepicker_2').on('change', function(e){
         $('#kt_daily_table').DataTable().clear().destroy();
         datatable(($(this).val()))
     })
 </script>
-
-
-    
-    <script>
-
-      
-         function showPreview(data){
-            let url = "{{ route('dailytask.show', ':id') }}".replace(':id', data)
-            $.ajax({
-                url: url,
-                method: "GET",
-                success: function(response) {
-                    $('#modal-div').html("");
-                    if (response.status == 'success') {
-                        $('#modal-div').html(response.msg);
-                    } else {
-                        Swal.fire({
-                            title: response.msg,
-                            icon: 'error',
-                            confirmButtonText: "Oke"
-                        })
-                    }
-                },
-                error: function(xhr, status, error) {
+ 
+<script>    
+function showPreview(data){
+    let url = "{{ route('dailytask.show', ':id') }}".replace(':id', data)
+        $.ajax({
+            url: url,
+            method: "GET",
+            success: function(response) {
+                $('#modal-div').html("");
+                if (response.status == 'success') {
+                    $('#modal-div').html(response.msg);
+                } else {
                     Swal.fire({
-                        title: 'Failed, Error Server',
-                        icon: 'error',
-                        confirmButtonText: "Oke"
+                    title: response.msg,
+                    icon: 'error',
+                    confirmButtonText: "Oke"
                     })
                 }
-            });
-        }
-    </script>
+            },
+            error: function(xhr, status, error) {
+                Swal.fire({
+                    title: 'Failed, Error Server',
+                    icon: 'error',
+                    confirmButtonText: "Oke"
+                })
+            }
+        });
+    }
+</script>
 @endsection

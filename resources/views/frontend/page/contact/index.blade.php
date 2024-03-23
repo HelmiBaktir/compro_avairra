@@ -30,36 +30,28 @@ $pin = asset('easton/images/icons/map-marker.png');
                     <h3> How can I assist you today?</h3>
                     <p>We're here to help! Feel free to reach out anytime during business hours. We strive to answer all inquiries within 24 hours on weekdays.</p>
                     @if (isset($address))
-                        <ul class="info-list clearfix">
-                            @foreach ($company2 as $item)
-                            @foreach (explode('//', $company->address) as $item2)
-                                <li class="d-blok">{{  $item2 }}</li>    
-                                <br> 
-                            @endforeach
-                            @endforeach
-                        </ul>
-                        <ul class="info-list clearfix">
-                            @foreach ($company2 as $item)
-                            @foreach (explode('//', $company->phone_number) as $item2)
-                                <li class="d-blok">{{  $item2 }}</li>    
-                                <br> 
-                            @endforeach
-                            @endforeach
-                        </ul>
-                        <ul class="info-list clearfix">
-                            @foreach ($company2 as $item)
-                            @foreach (explode('//', $company->email) as $item2)
-                                <li class="d-blok">{{  $item2 }}</li>    
-                                <br> 
-                            @endforeach
-                            @endforeach
-                        </ul>
+                    <ul class="info-list clearfix">
+                        @php
+                        $phoneNumbers = explode('//', $company->phone_number);
+                        $addressArr = explode('//', $company->address);
+                        @endphp
+
+                        @foreach($addressArr as $addr)
+                        <li>{{ $addr }}</li>
+                        @endforeach
+
+                        @foreach ($phoneNumbers as $phoneNumber)
+                        <li><a href="https://wa.me/+{{ $phoneNumber }}?text=Halo%20Admin%2C%20Saya%20ingin%20mendapatkan%20informasi%20lebih%20lanjut">+{{ $phoneNumber }}</a></li>
+                        @endforeach
+                        <li><a href="mailto:{{ $company->email }}">{{ $company->email }}</a></li>
+                    </ul>
                     @endif
                 </div>
             </div>
             <div class="col-lg-8 col-md-12 col-sm-12 form-column">
                 <div class="form-inner">
-                    <form method="post" action="sendemail.php" id="contact-form">
+                    <form method="post" action="{{ route('landing.send_message') }}" id="contact-form">
+                        @csrf
                         <div class="row clearfix">
                             <div class="col-lg-6 col-md-6 col-sm-12 form-group">
                                 <input type="text" name="username" placeholder="Your Name" required="">
@@ -98,6 +90,20 @@ $pin = asset('easton/images/icons/map-marker.png');
 @section('script')
     <!-- map script -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-CE0deH3Jhj6GN4YvdCFZS7DpbXexzGU"></script>
+	<script src="{{ asset('jeremia-assets/plugins/global/plugins.bundle.js') }}"></script>
     <script src="{{ asset('easton/js/gmaps.js')}}"></script>
     <script src="{{ asset('easton/js/map-helper.js')}}"></script>
+    <script>
+        document.getElementById("contact-form").onsubmit = function() {
+            if (!document.getElementById("checkbox").checked) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Anda harus menyetujui bahwa data yang Anda kirimkan akan dikumpulkan dan disimpan.',
+                });
+                return false;
+            }
+            return true;
+        };
+    </script>
 @endsection

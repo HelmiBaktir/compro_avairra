@@ -10,15 +10,14 @@
                 @foreach ($product as $item)
                     <div class="col-lg-4 col-md-6 col-sm-12 shop-block">
                         <a href="{{ route('landing.product.detail',['product'=>encrypt($item->id)]) }}" class="shop-block-one">
-                            <div class="inner-box">
-                                <div class="image-box">
-                                    <figure class="image"><img src="{{ asset($item->image_path)}}" alt=""></figure>
+                            <div class="inner-box" >
+                                <div class="image-box" style="width: 300px; height: 200px;">
+                                    <figure class="image"><img src="{{ asset($item->image_path)}}" alt="" style="width: 300px; height: 200px;"></figure>
                                 </div>
                                 <div class="lower-content">
-                                    <h6>{{ $item->nomor }}</h6>
-                                    <h6>{{ $item->series }}</h6>
                                     <h6>{{ $item->name }}</h6>
-                                    {{-- <span class="price">Rp. {{  number_format($item->price) }}</span> --}}
+                                    <hr>
+                                    <h6>{{ $item->series }}</h6>
                                 </div>
                             </div>
                         </a>

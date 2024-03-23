@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use DataTables;
+use Dompdf\Dompdf;
+use Dompdf\Options;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\HtmlString;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\DailyTask;
