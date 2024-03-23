@@ -16,10 +16,11 @@ class CompanySeeder extends Seeder
     {
         $roles = [
             [
-                'name'       => 'PT. Sukses',
-                'email' => 'sukses@gmail.com',
-                'phone_number' => '0812345//0312312',
-                'address' => 'Jl. Numpang',
+                'name' => 'PT. Avairra Indo Karya',
+                'email' => 'adnan@avairra.co.id',
+                'phone_number' => '6282229372706',
+                'address' => 'Jl. Parangkusumo No 9i, Surabaya//Jl. Tebet Timur Dalam XC No. 9, Jakarta Selatan',
+                'registerCode' => 'AVA123',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

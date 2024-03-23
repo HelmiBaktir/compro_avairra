@@ -5,7 +5,7 @@
             <div class="row clearfix">
                 <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
                     <div class="footer-widget logo-widget">
-                        <figure class="footer-logo"><a href="index.html"><img src="{{ asset('easton/images/footer-logo.png')}}" alt=""></a></figure>
+                        <figure class="footer-logo"><a href="{{ route('landing.home') }}"><img src="{{ asset('easton/images/footer-logo.png')}}" alt=""></a></figure>
                         <div class="text">
                             <p>Best Choice to Provide Solutions the Latest on Security Solutions and Energy & Efficiency Measurements for Protect Income.</p>
                         </div>
@@ -35,8 +35,19 @@
                         <div class="widget-content">
                             @if (isset($address))
                             <ul class="info-list clearfix">
-                                <li>{{ $address }}</li>
-                                <li><a href="tel:{{ $phone_number }}">{{ $phone_number }}</a></li>
+                                @php
+                                $phoneNumbers = explode('//', $company->phone_number);
+                                $addressArr = explode('//', $company->address);
+                                @endphp
+
+                                @foreach($addressArr as $addr)
+                                <li>{{ $addr }}</li>
+                                @endforeach
+
+                                @foreach ($phoneNumbers as $phoneNumber)
+                                <li><a href="https://wa.me/+{{ $phoneNumber }}?text=Halo%20Admin%2C%20Saya%20ingin%20mendapatkan%20informasi%20lebih%20lanjut">+{{ $phoneNumber }}</a></li>
+                                @endforeach
+
                                 <li><a href="mailto:{{ $company->email }}">{{ $company->email }}</a></li>
                             </ul>
                                 
@@ -50,7 +61,7 @@
     <div class="footer-bottom p_relative">
         <div class="auto-container">
             <div class="bottom-inner p_relative">
-                <div class="copyright"><p><a href="index.html">PT.Avairra</a> &copy; {{ date('Y') }} All Right Reserved</p></div>
+                <div class="copyright"><p><a href="{{ route('landing.home') }}">PT.Avairra</a> &copy; {{ date('Y') }} All Right Reserved</p></div>
             </div>
         </div>
     </div>

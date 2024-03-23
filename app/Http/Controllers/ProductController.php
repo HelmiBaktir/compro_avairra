@@ -35,20 +35,20 @@ class ProductController extends Controller
                 ->addColumn('No', function () use (&$counter)  {
                     return $counter++;
                 })
-                ->addColumn('Image', function($item) {
-                    $preview = '
-                    <a class="d-block overlay" data-fslightbox="lightbox-basic" href="'.asset($item->image_path).'">
-                        <div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px"
-                            style="background-image:url('.asset($item->image_path).')">
-                        </div>
-                        <div class="overlay-layer card-rounded bg-dark bg-opacity-25 shadow">
-                            <i class="bi bi-eye-fill text-white fs-3x"></i>
-                        </div>
-                    </a>
-                    ';
-                    // return asset($item->image_path);
-                    return $preview;
-                })
+                // ->addColumn('Image', function($item) {
+                //     $preview = '
+                //     <a class="d-block overlay" data-fslightbox="lightbox-basic" href="'.asset($item->image_path).'">
+                //         <div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px"
+                //             style="background-image:url('.asset($item->image_path).')">
+                //         </div>
+                //         <div class="overlay-layer card-rounded bg-dark bg-opacity-25 shadow">
+                //             <i class="bi bi-eye-fill text-white fs-3x"></i>
+                //         </div>
+                //     </a>
+                //     ';
+                //     // return asset($item->image_path);
+                //     return $preview;
+                // })
                 ->addColumn('Nomor', function($item) {
                     return '<span  class="text-gray-800 fs-5 fw-bold mb-1">'.$item->nomor.'</span>';
                 })
@@ -85,7 +85,7 @@ class ProductController extends Controller
                     ';   
                     return $button;
                 })
-                ->rawColumns(['No','Image','Nomor','Name','Series','Category','Action'])
+                ->rawColumns(['No','Nomor','Name','Series','Category','Action'])
                 ->make(true);
         }
 

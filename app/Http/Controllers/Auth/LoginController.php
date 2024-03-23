@@ -35,19 +35,4 @@ class LoginController extends Controller
      *
      * @return void
      */
-    // protected function authenticated(Request $request, $user)
-    // {
-    //     // $user = User::find($user->id);
-    //     // if ( $user->hasRole('admin') ) {
-    //     //     return redirect()->route('home');
-    //     // }
-    //     // else{
-    //     //     return redirect()->route('dailytask.index');
-    //     // }
-
-    
-    //     // Arahkan ke halaman lain jika perlu
-    //     // return redirect('/dashboard');
-    // }
-    
 }

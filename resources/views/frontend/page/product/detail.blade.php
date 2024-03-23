@@ -34,6 +34,7 @@
                         {{-- <div class="preview-link p_absolute t_20 r_20"><a href="assets/images/shop/shop-1.jpg" class="lightbox-image p_relative d_iblock fs_20 centred z_1 w_50 h_50 color_black lh_50" data-fancybox="gallery"><i class="icon-63"></i></a></div> --}}
                     </div>
                 </div>
+
                 <div class="col-lg-6 col-md-12 col-sm-12 content-column">
                     <div class="product-details p_relative d_block ml_20">
                         <h2 class="d_block fs_30 lh_40 fw_sbold mb_5">{{ $product->name }}</h2>
@@ -78,20 +79,19 @@
                             </div>
                         </div>
                     </div>
-                    
                 </div>
-            </div>
-        </div>
-        <div class="product-discription p_relative d_block mb_100">
-            <div class="content-box">
-                <h5 class="">Description</h5>
-                <hr>
-                <div>
-                    {!! $product->desc !!}
-                </div>
-            </div>
 
-        </div>   
+                <div class="product-discription p_relative d_block mb_100">
+                    <div class="content-box">
+                        <h5 class="">Description</h5>
+                        <hr>
+                        <div>
+                            {!! $product->desc !!}
+                        </div>
+                    </div>
+                </div> 
+            </div>    
+        </div>  
     </div>
 </section>
 @endsection

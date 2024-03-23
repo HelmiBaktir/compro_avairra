@@ -160,27 +160,19 @@ class CategoryController extends Controller
      */
     public function destroy($category)
     {
-        DB::beginTransaction();
-    
         try {
             $id = decrypt($category);
-            $category = Category::findOrFail($id);
-    
-            // Periksa apakah ada produk yang terkait dengan kategori
+            $category = Category::find($id);
+        
             if ($category->products()->exists()) {
-                return response()->json(array('status' => 'error','msg' => 'Cannot delete category because there are products associated with it.','err'=>$e->getMessage()), 200);
+                return response()->json(array('status' => 'error','msg' => 'Cannot delete category. Products are associated with this category.'), 200);
             }
-    
+        
             $category->delete();
-    
-            DB::commit();
-    
+        
             return response()->json(array('status' => 'success','msg' => 'Success Delete Category'), 200);
-        } catch (\Exception $e) {
-            DB::rollBack();
-    
-            return response()->json(array('status' => 'error','msg' => 'Failed to delete category','err'=>$e->getMessage()), 200);
+        } catch (\Throwable $th) {
+            return response()->json(array('status' => 'error','msg' => 'Error Delete Category','err'=>$th->getMessage()), 200);
         }
     }
-    
 }

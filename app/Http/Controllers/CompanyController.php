@@ -55,6 +55,9 @@ class CompanyController extends Controller
                     $list .= '</ul>';
                     return '<span  class="text-gray-800 fs-5 fw-bold mb-1">'.$list.'</span>';
                 })
+                ->addColumn('Register Code', function($item) {
+                    return '<span  class="text-gray-800 fs-5 fw-bold mb-1">'.$item->registerCode.'</span>';
+                })
                 ->addColumn('Action', function ($item) {
                     $encryptedIdString = "'".strval(encrypt($item->id))."'";
                     $button ='
@@ -62,7 +65,7 @@ class CompanyController extends Controller
                     //<button onclick="deleteCompany('.$encryptedIdString.')" class="btn btn-danger border border-1  py-2">Delete</button>';
                     return $button;
                 })
-                ->rawColumns(['No','Name','Email','Phone Number','Address','Action'])
+                ->rawColumns(['No','Name','Email','Phone Number','Address','Register Code','Action'])
                 ->make(true);
         }
 
@@ -165,6 +168,8 @@ class CompanyController extends Controller
                 'email' => 'required',
                 'phone_number' => 'required',
                 'address' => 'required',
+                'registerCode' => 'required',
+
 
             ]);
             if ($validator->fails()) {
@@ -182,6 +187,7 @@ class CompanyController extends Controller
                 $company = Company::find($company);
                 $company->name = $request->get('name');
                 $company->email = $request->get('email');
+                $company->registerCode = $request->get('registerCode');
                 $company->phone_number = $phone_compile;
                 $company->address = $address_compile;
                 $company->save();

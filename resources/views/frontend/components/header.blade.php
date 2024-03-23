@@ -6,18 +6,8 @@
                     <li><i class="icon-1"></i>Sun-Fri  08:00AM-05:00PM</li>
                     @if (isset($address))
                     <li><i class="icon-2"></i>{{ $address }}</li>
-                    <li><i class="icon-3"></i><a href="mailto:{{ $company->email }}">{{ $company->email }}</a></li>
-                        
+                    <li><i class="icon-3"></i><a href="mailto:{{ $company->email }}">{{ $company->email }}</a></li>                   
                     @endif
-                </ul>
-            </div>
-            <div class="right-column">
-                <ul class="social-links clearfix">
-                    <li><p>Follow Us:</p></li>
-                    <li><a href="{{ count($sosial_media->where('platform','Facebook')) > 0 ? $sosial_media->where('platform','Facebook')[0]->link : '!#' }}"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="{{ count($sosial_media->where('platform','Twitter')) > 0 ? $sosial_media->where('platform','Twitter')[0]->link : '!#' }}"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="{{ count($sosial_media->where('platform','Linkedin')) > 0 ? $sosial_media->where('platform','Likendin')[0]->link : '!#' }}l"><i class="fab fa-linkedin-in"></i></a></li>
-                    <li><a href="{{ count($sosial_media->where('platform','Pinterest')) > 0 ? $sosial_media->where('platform','Pinterst')[0]->link : '!#' }}"><i class="fab fa-pinterest-p"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -26,7 +16,7 @@
         <div class="outer-box">
             <div class="menu-area clearfix">
                 <div class="logo-box">
-                    <figure class="logo"><a href="index.html"><img src="{{ asset('easton/images/logo.png')}}" alt=""></a></figure>
+                    <figure class="logo"><a href="{{ route('landing.home') }}"><img src="{{ asset('easton/images/logo.png')}}" alt=""></a></figure>
                 </div>
                 <div class="mobile-nav-toggler">
                     <i class="icon-bar"></i>
@@ -46,7 +36,9 @@
             </div>
             <div class="nav-right">
                 <div class="btn-box">
-                    <a href="https://wa.me/6282229372706?text=Halo%20Admin%2C%20Saya%20ingin%20mendapatkan%20informasi%20lebih%20lanjut" class="theme-btn btn-one">Any Question?</a>
+                    @if (isset($address))
+                        <a href="https://wa.me/+{{ $phone_number }}?text=Halo%20Admin%2C%20Saya%20ingin%20mendapatkan%20informasi%20lebih%20lanjut"></a>
+                    @endif              
                 </div>
             </div>
         </div>

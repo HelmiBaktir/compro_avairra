@@ -157,7 +157,7 @@
                                 style="background-image: url({{ asset('easton/images/shape/shape-31.png') }});"></div>
                             <div class="icon"><i class="icon-18"></i></div>
                         </div>
-                        <h3>Asset Security Systems</h3>
+                        <h3>Asset Security <br> Systems</h3>
                         <p>onitor and secure assets with state-of-the-art security system solutions for optimal protection.</p>
                     </div>
                 </div>
@@ -171,7 +171,7 @@
                                 style="background-image: url({{ asset('easton/images/shape/shape-31.png') }});"></div>
                             <div class="icon"><i class="icon-20"></i></div>
                         </div>
-                        <h3>Automation Systems</h3>
+                        <h3>Automation <br> Systems</h3>
                         <p>Advanced automation system to improve the efficiency and productivity of your business.</p>
                     </div>
                 </div>
@@ -294,7 +294,10 @@
                                 <p>When you're interested in a specific product, the first step is to schedule an appointment with us for further inquiries. Our experienced sales team will be delighted to provide more detailed information about the product. 
                                     Whether it's technical questions, specifications, or customization options, we're ready to help you 
                                     find the solution that best fits your needs.</p>
-                                <a href="appointment.html" class="theme-btn btn-one">Appointment</a>
+
+                                @if (isset($address))
+                                    <a href="https://wa.me/+{{ $phone_number }}?text=Halo%20Admin%2C%20Saya%20ingin%20mendapatkan%20informasi%20lebih%20lanjut" class="theme-btn btn-one">Appointment</a>
+                                @endif 
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-12 col-sm-12 image-column">
@@ -316,7 +319,10 @@
                                 <p>After gaining a clear understanding of your needs, we'll provide a comprehensive quotation. This includes related product catalogs, the latest price list, 
                                     and additional information you may need to make an informed decision. 
                                     We ensure you have all the necessary tools to make the right choice.</p>
-                                <a href="appointment.html" class="theme-btn btn-one">Appointment</a>
+
+                                @if (isset($address))
+                                    <a href="https://wa.me/+{{ $phone_number }}?text=Halo%20Admin%2C%20Saya%20ingin%20mendapatkan%20informasi%20lebih%20lanjut" class="theme-btn btn-one">Appointment</a>
+                                @endif   
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-12 col-sm-12 image-column">
@@ -338,7 +344,10 @@
                                 <p>If there's a need for price negotiation or additional considerations before you make the final decision, 
                                     we're always open to discussions. Once the price agreement is reached, and order details are confirmed, our team will promptly process your order with the Pre-Order (PO) system. 
                                     With an efficient process, we ensure that your order is handled quickly and accurately to meet your requirements.</p>
-                                <a href="appointment.html" class="theme-btn btn-one">Appointment</a>
+                                
+                                @if (isset($address))
+                                    <a href="https://wa.me/+{{ $phone_number }}?text=Halo%20Admin%2C%20Saya%20ingin%20mendapatkan%20informasi%20lebih%20lanjut" class="theme-btn btn-one">Appointment</a>
+                                @endif 
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-12 col-sm-12 image-column">

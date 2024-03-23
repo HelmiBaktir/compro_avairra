@@ -53,6 +53,12 @@
             ajax: "{{ route('categories.table.admin') }}",
             columns: [
                 {
+                    data: 'No',
+                    name: 'No',
+                    title: 'No',
+                    className: 'px-5 text-nowrap'
+                },
+                {
                     data: 'Name',
                     name: 'Name',
                     title: 'Name',
@@ -62,7 +68,7 @@
                     data: 'Desc',
                     name: 'Desc',
                     title: 'Desc',
-                    className: 'text-nowrap'
+                    className: 'px-5 text-nowrap'
                 },
                 {
                     data: 'Action',

@@ -82,8 +82,11 @@
                                         </div>
                                 </div>
                             @endif
-                        @endforeach
-                       
+                        @endforeach                      
+                    </div>
+                    <div class="fv-row mt-3">
+                        <label for="required" class="required fs-6 fw-semibold mb-2"><b>Register Code</b></label>
+                        <input type="text" class="form-control" value="{{ $company->registerCode }}" name="registerCode" placeholder="Write the Register Code">
                     </div>
                     <div class="fv-row mt-3">
                         <button type="button" id="btnAddAddress" class="btn btn-primary">Add Address</button>

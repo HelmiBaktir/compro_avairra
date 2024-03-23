@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Banner;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Company;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class LandingPageController extends Controller
 {
@@ -112,5 +114,30 @@ class LandingPageController extends Controller
     public function contact()
     {
         return view('frontend.page.contact.index');
+    }
+
+    public function sendMessage(Request $request)
+    {
+        // Mendapatkan data dari formulir
+        $company = Company::first();
+        $companyPhoneNumber = $company->phone_number;
+        $userName = $request->input('username');
+        $senderEmail = $request->input('email');
+        $userPhone = $request->input('phone');
+        $userSubject = $request->input('subject');
+        $message = $request->input('message');
+
+        // Membuat pesan yang akan dikirim ke WhatsApp
+        $whatsappMessage = "Name: $userName\nEmail: $senderEmail\nPhone: $userPhone\nSubject: $userSubject\nMessage: $message";
+
+        // Melakukan URL encoding pada pesan
+        $encodedMessage = urlencode($whatsappMessage);
+
+        // Membuat URL untuk pengiriman pesan WhatsApp
+        $whatsappURL = "https://wa.me/$companyPhoneNumber?text=$encodedMessage";
+
+        // Redirect pengguna ke aplikasi WhatsApp dengan pesan yang sudah disertakan
+        return redirect()->away($whatsappURL);
+
     }
 }
