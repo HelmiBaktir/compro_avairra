@@ -30,11 +30,30 @@ $pin = asset('easton/images/icons/map-marker.png');
                     <h3> How can I assist you today?</h3>
                     <p>We're here to help! Feel free to reach out anytime during business hours. We strive to answer all inquiries within 24 hours on weekdays.</p>
                     @if (isset($address))
-                    <ul class="info-list clearfix">
-                        <li>{{ $address }}</li>
-                        <li><a href="mailto:{{ $company->email }}">{{ $company->email }}</a></li>
-                        <li><a href="tel:{{ $phone_number }}">{{ $phone_number }}</a></li>
-                    </ul>
+                        <ul class="info-list clearfix">
+                            @foreach ($company2 as $item)
+                            @foreach (explode('//', $company->address) as $item2)
+                                <li class="d-blok">{{  $item2 }}</li>    
+                                <br> 
+                            @endforeach
+                            @endforeach
+                        </ul>
+                        <ul class="info-list clearfix">
+                            @foreach ($company2 as $item)
+                            @foreach (explode('//', $company->phone_number) as $item2)
+                                <li class="d-blok">{{  $item2 }}</li>    
+                                <br> 
+                            @endforeach
+                            @endforeach
+                        </ul>
+                        <ul class="info-list clearfix">
+                            @foreach ($company2 as $item)
+                            @foreach (explode('//', $company->email) as $item2)
+                                <li class="d-blok">{{  $item2 }}</li>    
+                                <br> 
+                            @endforeach
+                            @endforeach
+                        </ul>
                     @endif
                 </div>
             </div>

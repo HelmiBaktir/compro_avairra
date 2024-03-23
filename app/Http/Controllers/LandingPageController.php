@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Banner;
-use App\Models\Category;
+use App\Models\Company;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class LandingPageController extends Controller
@@ -111,6 +112,7 @@ class LandingPageController extends Controller
 
     public function contact()
     {
-        return view('frontend.page.contact.index');
+        $company2 = Company::all();
+        return view('frontend.page.contact.index',compact('company2'));
     }
 }

@@ -31,6 +31,7 @@ class AppServiceProvider extends ServiceProvider
         $phone_number = explode('//', $company->phone_number)[0];
         // dd($address);
         $sosial_media = SosialMedia::where('company_id', $company->id)->get();
-        View::share(['sosial_media'=> $sosial_media,'company'=>$company,'phone_number'=>$phone_number,'address'=>$address]);
+        $company2 = Company::all();
+        View::share(['sosial_media'=> $sosial_media,'company'=>$company,'phone_number'=>$phone_number,'address'=>$address,'company2']);
     }
 }
